@@ -99,7 +99,7 @@ name="myForm" novalidate>
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-danger" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+        <input type = "button" class="btn btn-success" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
 myForm.email.$dirty && myForm.email.$invalid" id = "clickme" value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
