@@ -10,6 +10,9 @@
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css">
 
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" src="socialbtn.css" type="text/css"/>
@@ -28,6 +31,11 @@
   $('[data-toggle="tooltip"]').tooltip()
 })
   </script>
+   <script>
+function validateCtrl($scope) {
+    $scope.email = '';
+}
+</script>
 
 	<link rel="shortcut icon" href="food.ico">
   </head>
@@ -82,17 +90,21 @@
       <div class="jumbotron">
         <h1>Leaving so soon?</h1>      
          <br>
-         <form role="form" action = "member.php">
+        <form role="form" action = "member.php" ng-app="" ng-controller="validateCtrl" 
+name="myForm" novalidate>
     <div class="form-group">
       <label for="usr">E-mail:</label>
-      <input type="text" class="form-control" id="email" name="email">
+      <input type="email" class="form-control" id="email" ng-model="email" required name="email"><small><span style="color:orange" ng-show="myForm.email.$dirty && myForm.email.$invalid"><span ng-show="myForm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span></small>
     </div><form role="form">
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" id = "clickme" value="Submit!"/>
+        <input type = "button" class="btn btn-success" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid" id = "clickme" value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
