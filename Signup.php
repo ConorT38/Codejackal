@@ -114,7 +114,7 @@ else
 $sql = "INSERT INTO members ".
        "(fname,lname, password, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
-mysql_select_db('a1711493_users');
+mysql_select_db('wearefif_codejackal');
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
