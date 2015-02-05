@@ -138,9 +138,24 @@ $('#clickme').on('click', function() {
      Weve been working a lot lately on getting the site up and running.<br>
      This is an example of what the blog post api will look like once we get everthing finished!<br>
      Click <b><a href="exampleblog.php">Here</a></b> to view it!
+     
+     <br><h3>How much work we have left to do:</h3>
+     
+     We've been working like mad on the website, but that damn FTP just won't stop glitching like crazy.<br>
+     We'll be updating and putting buttons on our site from our social netwprls
+     
 
       <!-- This is where the content for the blog api will go, be sure to leave plenty of space for this -->
-        </div>
+        
+        <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Check it!
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    <center><h4>
+  </div>
+  </div>
+</div>
       </div>
       <div class="clearfix visible-lg"></div>
 	  <center>
