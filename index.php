@@ -91,7 +91,7 @@ $('#clickme').on('click', function() {
     <div class="container">
       <div class="jumbotron">
         <h1>Welcome to CodeJackal!</h1>      
-        <p>Learn about coding projects and shit. </p>  
+        <p>The <i>tastiest</i> coding tutorial website out there!</p>  
         <br>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   What's this all about?
