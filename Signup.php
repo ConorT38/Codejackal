@@ -66,12 +66,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
+      <!-- Updated Wording -Niall -->
       <div class="modal-body">
-        So you've made it to the sign-up part of the site, good for you, you're brilliant.<br>
-        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
+        HELP!
         <br>
-        What you're gonna want to do, is just enter in all of your silly little credentials (Name, Email, Password) and I'll let the server do the rest.<br>
-        Trust me bbz, it's easy!
+        Please enter your credentials(Name,Email,Password) and click submit to create a CodeJackal account.  <hr>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -82,14 +82,16 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Enter in your credentials here:</h1>      
+        <h1>Enter your credentials in the corresponding spaces below:</h1>      
          <br>
+<!-- Updated db details -Niall -->
            <?php
 if(isset($_POST['cilckme']))
+
 {
-$dbhost = 'mysql12.000webhost.com';
-$dbuser = 'a1711493_conor';
-$dbpass = 'blizzardofozz1';
+$dbhost = 'wearefif_codejackal';
+$dbuser = 'wearefif_codejac';
+$dbpass = 'codejackalsql';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
 {
