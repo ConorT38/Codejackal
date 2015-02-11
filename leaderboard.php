@@ -88,10 +88,10 @@
          loop will be something like "for(int i=0; i<list.size(); i++){
                                           echo $_POST['score']}; etc..-->
     <?php
-$dbhost = 'mysql12.000webhost.com';
-$dbuser = 'a1711493_conor';
-$dbpass = 'blizzardofozz1';
-$dbname = 'a1711493_users';
+$dbhost = 'localhost';
+$dbuser = 'wearefif_codejacka';
+$dbpass = 'codejackalsql';
+$dbname = 'wearefif_codejackal';
 
 // Create connection
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
