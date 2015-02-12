@@ -112,7 +112,7 @@ else
    $email = $_POST['email'];
    $password = $_POST['password'];
 }
-<!--Conor- Updated the input for the SQL statement, pass/email/timestamp-->
+<!-- Conor Updated the input for the SQL statement, pass/email/timestamp -->
 $sql = "INSERT INTO members ".
        "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
