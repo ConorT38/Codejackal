@@ -66,7 +66,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
-      <!-- Updated Wording -Niall -->
+      <!-- Updated Wording -Niall --><!-- Problem --> 
       <div class="modal-body">
         HELP!
         <br>
