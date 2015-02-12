@@ -113,7 +113,7 @@ else
    $password = $_POST['password'];
 }
 <!-- Conor Updated the input for the SQL statement, pass/email/timestamp -->
-$sql = "INSERT INTO members ".
+$sql = "INSERT INTO users ".
        "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
 mysql_select_db('wearefif_codejackal');
