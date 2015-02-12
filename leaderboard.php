@@ -89,7 +89,7 @@
                                           echo $_POST['score']}; etc..-->
     <?php
 $dbhost = 'localhost';
-$dbuser = 'wearefif_codejacka';
+$dbuser = 'wearefif_codejac';
 $dbpass = 'codejackalsql';
 $dbname = 'wearefif_codejackal';
 
