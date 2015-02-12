@@ -112,9 +112,9 @@ else
    $email = $_POST['email'];
    $password = $_POST['password'];
 }
-
+<!--Conor- Updated the input for the SQL statement, pass/email/timestamp-->
 $sql = "INSERT INTO members ".
-       "(fname,lname, password, timestamp) ".
+       "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
 mysql_select_db('wearefif_codejackal');
 $retval = mysql_query( $sql, $conn );
