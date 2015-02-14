@@ -81,6 +81,46 @@
          <br>
     </div>
 </div>
+ <div class="container">
+        <div class="jumbotron">
+      <!-- Beginning of blog post(Beta)_Seamus-->
+      <h2>Post Your Blog Hommie!!!</h2>
+        <p>Fill out the form below.</p>
+          <div class ="form-group">
+          <form role ="form" action="dbinsert.php" method="post">
+          <label>Title: <br />
+          <input name="title" type="text" class="form-control" placeholder="- Enter Your Blog Title Here -" /><br /></label>
+      </div>
+      
+   
+<div ng-controller="countCtrl">
+  <div class="form-group">
+  <label for="comment1">Content:</label>
+  <textarea ng-model="content" class="form-control" rows="5" type="text" id="comment1" name="comment1"  placeholder="Post your blog content!!!!"></textarea>
+  <small>Number of characters left: <span style ="color:orange"ng-bind="left()"></span></small>
+</div>
+</div>
+   <div class ="form-group">
+  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
+</div>
+ <script>
+  bootstrap_alert = function() {}
+bootstrap_alert.warning = function(message) {
+            $('#alert_placeholder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>')
+        }
+    
+
+$('#clickme').on('click', function() {
+            bootstrap_alert.warning('Your e-mail has been received by the team!');
+});
+  </script>
+  </form>
+<script src="contactformcount.js"></script>
+<script src="countCtrl.js"></script>
+
+</div>
+</div>
+</div>
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
