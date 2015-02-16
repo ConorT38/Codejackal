@@ -1,3 +1,10 @@
+<?php
+// remove all session variables
+session_unset(); 
+
+// destroy the session 
+session_destroy(); 
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Free Web tutorials">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Hege Refsnes">
+    <meta name="author" content="Codejackal team">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css">
