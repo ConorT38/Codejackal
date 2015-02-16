@@ -32,7 +32,7 @@
   </head>
 
   <body onload="timer = setTimeout(function() {
-                window.location = 'www.codejackal.com/Logout.php';
+                window.location = 'Logout.php';
             }, 3000)">>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
