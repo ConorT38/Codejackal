@@ -63,6 +63,8 @@
     <div class="container">
        <div class="jumbotron">
        <h1>You're being redirected!</h1>
+       <br>
+       <img src="redirect.gif" class="img-responsive">
        
        </div>
     </div>
