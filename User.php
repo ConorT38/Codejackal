@@ -1,3 +1,6 @@
+<?php
+setcookie(time() + (86400 * 30), "/");
+?>
 <!DOCTYPE html>
 <html>
   <head>
