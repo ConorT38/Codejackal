@@ -1,3 +1,7 @@
+<!--Start using sessions so that when the user goes through pages, it will know the same variables -Conor-->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
