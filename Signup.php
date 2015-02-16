@@ -114,7 +114,7 @@ else
    $email = $_POST['email'];
    $password = $_POST['password'];
 }
-<!-- Conor Updated the input for the SQL statement, pass/email/timestamp -->
+#This is how you comment when you're in the parameters of php
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
