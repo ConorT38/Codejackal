@@ -110,7 +110,7 @@
       <br>
       <h3 id="Step1">Step 1:</h3>
       <p>First things first, have a look through our site and familiarize yourself with the homepage and the corresponding pages.<br>
-      Then, go to the "Sign Up" link, at the top right of the menu</p><img src="signup.png" width="200" height="300"/>
+      Then, go to the "Sign Up" link, at the top right of the menu</p><img src="SignUp.png" class="img-responsive" width="200" height="300"/>
       </div>
       </div>
       <div class="container">
@@ -118,7 +118,7 @@
       
       <h3 id="Step2">Step 2:</h3>
       <p>Enter in your credentials carefully and without errors, the first password will only work if it matches up with the second one.<br>
-      On completeion of the form, press the submit button and you will be moved forward to the userID page!</p><img src="signup2.png" width="200" height="300"/>
+      On completeion of the form, press the submit button and you will be moved forward to the userID page!</p><img src="signup1.png" class="img-responsive" width="200" height="300"/>
       </div>
       </div>
       <div class="clearfix visible-lg"></div>
