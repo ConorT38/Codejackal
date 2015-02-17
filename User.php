@@ -54,7 +54,7 @@ setcookie(time() + (86400 * 30), "/");
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="redirect.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
