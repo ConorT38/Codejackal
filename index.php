@@ -144,19 +144,19 @@ $('#clickme').on('click', function() {
      <br><h3>How much work we have left to do:</h3>
      
      We've been working like mad on the website, but that damn FTP just won't stop glitching like crazy.<br>
-     We'll be updating and putting buttons on our site from our social netwprls
+     We'll be updating and putting buttons on our site from our social networks 
      
 
       <!-- This is where the content for the blog api will go, be sure to leave plenty of space for this -->
         
-        <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-warning btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Check it!
 </button>
 <div class="collapse" id="collapseExample">
   <div class="well">
     <center><h4>How hard we've been working:</h4>
     <br>
-    To the point of having to consume a bottle of whiskey while powerhousing through some of the backend and front-end code, we've been going full on apeshit with this code.
+    To the point of having to consume a bottle of whiskey while powerhousing through some of the backend and front-end code, we've been going full on with this code.
   </div>
   </div>
 </div>
