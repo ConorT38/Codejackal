@@ -4,7 +4,7 @@ setcookie(time() + (86400 * 30), "/");
 <!DOCTYPE html>
 <html ng-app="">
   <head>
-    <title>CodeJackal | Login</title>
+    <title>CodeJackal | Signup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -48,7 +48,7 @@ setcookie(time() + (86400 * 30), "/");
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
              <li><a href="list.php">Archive</a></li>
             <li><a href="random.php">Random</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -56,8 +56,7 @@ setcookie(time() + (86400 * 30), "/");
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
