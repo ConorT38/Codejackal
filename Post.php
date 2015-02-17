@@ -1,5 +1,10 @@
 <!--Start using sessions so that when the user goes through pages, it will know the same variables -Conor-->
 <?php
+if(!isset($_SESSION['submitted'])){ //if login in session is not set
+    header("Location: http://www.codejackal.com/login.php");
+}
+?>
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
