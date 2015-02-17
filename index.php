@@ -137,7 +137,7 @@ $('#clickme').on('click', function() {
         <div class="well">
        <h2>What's been happening lately</h2>
        <hr>
-     Weve been working a lot lately on getting the site up and running.<br>
+     We've been working a lot lately on getting the site up and running.<br>
      This is an example of what the blog post api will look like once we get everthing finished!<br>
      Click <b><a href="exampleblog.php">Here</a></b> to view it!
      
