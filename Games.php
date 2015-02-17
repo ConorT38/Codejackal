@@ -42,9 +42,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="User.php">Home</a></li>
+            <li><a href="User.php">Home</a></li>
              <li><a href="Userlist.php">My Posts</a></li>
-            <li><a href="Games.php">Games</a></li>
+            <li class="active"><a href="Games.php">Games</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
