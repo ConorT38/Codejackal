@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SESSION['submitted'])){ //if login in session is not set
+    header("Location: http://www.codejackal.com/Login.php");
+}
+?>
+<?php
 setcookie(time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
