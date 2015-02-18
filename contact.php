@@ -194,17 +194,7 @@ if (isset($_REQUEST['submitted'])) {
    <div class ="form-group">
   <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
 </div>
- <script>
-  bootstrap_alert = function() {}
-bootstrap_alert.warning = function(message) {
-            $('#alert_placeholder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>')
-        }
-    
 
-$('#clickme').on('click', function() {
-            bootstrap_alert.warning('Your e-mail has been received by the team!');
-});
-  </script>
   </form>
 <script src="contactformcount.js"></script>
 <script src="countCtrl.js"></script>
