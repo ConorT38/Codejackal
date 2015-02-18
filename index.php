@@ -61,14 +61,12 @@ $('#clickme').on('click', function() {
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
-		<form class="navbar-form" role="search">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-			</div>
-		</div>
-		</form>
+	<div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
 		</li>
             <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -135,8 +133,14 @@ $('#clickme').on('click', function() {
         </div>
      <div class="col-md-3">
          <h2 >Facebook Feed</h2>
-          <p>We'll put a Facebook API in here also after we make the Facebook page for the site! </p>
-          <p><a href="about.html">more...</a></p>
+           <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com
+
+%2Fcodejackal&width=300&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=605" scrolling="yes" 
+
+frameborder="0" style="border:none; overflow:hidden; width:300px; height:600px; background: white; float:left; " 
+
+allowtransparency="true">
+	</iframe>
         </div>
 
 
