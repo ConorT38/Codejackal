@@ -192,7 +192,8 @@ if (isset($_REQUEST['submitted'])) {
 </div>
 </div>
    <div class ="form-group">
-  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
+  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;
+  <input name="submitted" class="btn btn-primary" type="submit" value="Submit" />
 </div>
 
   </form>
