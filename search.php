@@ -97,7 +97,7 @@ search"></i></button>
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Search results for : <?php $_GET['srch-term']?></h1>      
+        <h1>Search results for : <?php $srch-term ?></h1>      
         
       <?php 
 	  if(isset($_POST['submit'])){ 
