@@ -121,7 +121,7 @@ else
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
-mysql_select_db('wearefif_codejackal');
+mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
