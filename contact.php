@@ -81,10 +81,10 @@
     <div class="container">
       <div class="jumbotron">
         <h1>Make sure to contact us!</h1>      
-        <p>E-mail us and we'll get back to you shortly!</p>
+        <p>Please send us an E-mail and we will reply as soon as possible!!</p>
         <br>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  What's this about?
+  What's this?
 </button>      
       </div>
     </div>
