@@ -70,7 +70,7 @@ $('#clickme').on('click', function() {
 
 term">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
+				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-
 
 search"></i></button>
 			</div>
