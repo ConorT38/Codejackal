@@ -64,7 +64,7 @@ $('#clickme').on('click', function() {
 	
            <li>
 	
-          <form class="navbar-form" role="search">
+          <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-
 
