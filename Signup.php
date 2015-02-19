@@ -88,14 +88,14 @@ setcookie(time() + (86400 * 30), "/");
       <div class="jumbotron">
         <h1>Enter your credentials in the corresponding spaces below:</h1>      
          <br>
-<!-- Updated db details -Niall -->
+<!--Updated DB Details -->
            <?php
 if(isset($_POST['cilckme']))
 
 {
-$dbhost = 'wearefif_codejackal';
-$dbuser = 'wearefif_codejac';
-$dbpass = 'codejackalsql';
+$dbhost = 'codejackal_database';
+$dbuser = 'codejackal_admin';
+$dbpass = 'waltherp99';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
 {
@@ -117,6 +117,7 @@ else
    $password = $_POST['password'];
 }
 #This is how you comment when you're in the parameters of php
+#updated the database details
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email, timestamp) ".
        "VALUES('$fname','$lname',$password, NOW())";
