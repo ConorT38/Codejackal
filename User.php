@@ -7,6 +7,20 @@ if(!isset($_SESSION['submitted'])){ //if login in session is not set
 setcookie(time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
+<?php
+if(isset($_POST['submitted']))
+{
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+else{
+
+?>
 <html>
   <head>
     <title>CodeJackal |<?php echo $fname?></title>
@@ -111,4 +125,7 @@ setcookie(time() + (86400 * 30), "/");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
+  <?php
+}
+?>
 </html>
