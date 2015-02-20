@@ -18,7 +18,6 @@ if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
 }
-else{
 
 ?>
 <html>
@@ -111,6 +110,8 @@ else{
       <div class="jumbotron">
         <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
          <br>
+         
+         <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs.php">Here</button>
     </div>
 </div>
       <div class="clearfix visible-lg"></div>
@@ -125,7 +126,5 @@ else{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
-  <?php
-}
-?>
+ 
 </html>
