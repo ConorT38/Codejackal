@@ -117,20 +117,20 @@ if(! get_magic_quotes_gpc() )
    $fname = addslashes ($_POST['fname']);
    $lname = addslashes ($_POST['lname']);
    $email = addslashes($_POST['email']);
-   $password = addslashes($_POST['password']);
+   $pass = addslashes($_POST['pass']);
 }
 else
 {
    $fname = $_POST['fname'];
    $lname = $_POST['lname'];
    $email = $_POST['email'];
-   $password = $_POST['password'];
+   $pass= $_POST['pass'];
 }
 #This is how you comment when you're in the parameters of php
 #updated the database details
 $sql = "INSERT INTO users ".
-       "(fname,lname, pass, email, timestamp) ".
-       "VALUES('$fname','$lname',$password, NOW())";
+       "(fname,lname, pass, email, ) ".
+       "VALUES('$fname','$lname','$email',$pass)";
 mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
@@ -160,14 +160,14 @@ else
 <br>
       <br>
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" ng-model="passw1" id="password" placeholder ="Enter in dat password yo." name="password">
+      <input type="password" class="form-control" ng-model="passw1" id="password" placeholder ="Enter in dat password yo." name="pass">
   <br>
       <label for="pwd">Confirm Password:</label>
       <input type="password" class="form-control" ng-model="passw2" id="password2" placeholder ="Enter in dat password yo." name="password2">
   <br>
   <br>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" ng-disabled="error || incomplete" id = "clickme" value="Submit!" name="clickme"/>&nbsp;&nbsp;&nbsp;
+        <input type = "submit" class="btn btn-success" ng-disabled="error || incomplete" id = "clickme" value="Submit!" name="clickme"/>&nbsp;&nbsp;&nbsp;
          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
