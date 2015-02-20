@@ -1,6 +1,16 @@
 <?php
 setcookie(time() + (86400 * 30), "/");
 ?>
+<?php
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+?>
 <!DOCTYPE html>
 <html ng-app="">
   <head>
@@ -103,14 +113,7 @@ setcookie(time() + (86400 * 30), "/");
 if(isset($_POST['clickme']))
 
 {
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
+
 
 if(! get_magic_quotes_gpc() )
 {
