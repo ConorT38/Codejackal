@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="">
   <head>
-    <title>CodeJackal | Login</title>
+    <title>CodeJackal | Tutorial</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -50,17 +50,12 @@
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li>
-	
-          <form class="navbar-form" role="search">
+             <li>
+          <form class="navbar-form" action="search.php" method="post" role="search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-
-
-term">
+			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
-
-search"></i></button>
+				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
 		</div>
 		</form>
