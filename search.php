@@ -1,8 +1,11 @@
- 
+ <?php
+ mysql_connect("localhost","root","password") or die(mysql_error());
+ mysql_select_db("ENTRIES") or die("Couldn't connect to the database!");
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal | Error</title>
+    <title>CodeJackal | search</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -57,7 +60,7 @@
 	
           <form class="navbar-form" role="search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-
+			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srch-
 term">
 			<div class="input-group-btn">
 				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
@@ -82,8 +85,7 @@ search"></i></button>
           <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
       <div class="modal-body">
-        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>
-        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
+        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
         <br>
         What you're gonna want to do, is just enter in all of your silly little credentials (Email, Password) and I'll let the server do the rest.<br>
         Trust me, it's easy!
@@ -97,19 +99,19 @@ search"></i></button>
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Search results for : <?php $srch-term ?></h1>      
+        <h1>Search results for : <?php $srchterm ?></h1>      
         
       <?php 
 	  if(isset($_POST['submit'])){ 
 	  if(isset($_GET['go'])){ 
-	  if(preg_match("/^[  a-zA-Z]+/", $_POST['srch-term'])){ 
-	  $name=$_POST['srch-term']; 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['srchterm'])){ 
+	  $name=$_POST['srchterm']; 
 	  //connect  to the database 
 	  $db=mysql_connect  ("servername", "username",  "password") or die ('I cannot connect to the database  because: ' . mysql_error()); 
 	  //-select  the database to use 
 	  $mydb=mysql_select_db("yourDatabase"); 
 	  //-query  the database table 
-	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $srch-term .  "%' OR DESCR LIKE '%" . $srch-term ."%'"; 
+	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $srchterm .  "%' OR DESCR LIKE '%" . $srchterm ."%'"; 
 	  //-run  the query against the mysql query function 
 	  $result=mysql_query($sql); 
 	  //-create  while loop and loop through result set 
