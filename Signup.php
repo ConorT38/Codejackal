@@ -103,9 +103,9 @@ setcookie(time() + (86400 * 30), "/");
 if(isset($_POST['clickme']))
 
 {
-$dbhost = 'codejackal_database';
+$dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
-$dbpass = 'waltherp99';
+$dbpass = 'Waltherp99';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $conn )
 {
@@ -138,6 +138,7 @@ if(! $retval )
   die('Could not enter data: ' . mysql_error());
 }
 echo "Entered data successfully\n";
+header("Location:www.codejackal.com/Login.php");
 mysql_close($conn);
 }
 else
