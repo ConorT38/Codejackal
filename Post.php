@@ -1,6 +1,6 @@
 <!--Start using sessions so that when the user goes through pages, it will know the same variables -Conor-->
 <?php
-if(!isset($_SESSION['submitted'])){ //if login in session is not set
+if(!isset($_SESSION['fname'])){ //if login in session is not set
     header("Location: http://www.codejackal.com/Login.php");
 }
 ?>
@@ -57,17 +57,12 @@ session_start();
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li>
-	
-          <form class="navbar-form" role="search">
+            <li>
+          <form class="navbar-form" action="search.php" method="post" role="search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-
-
-term">
+			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
-
-search"></i></button>
+				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
 		</div>
 		</form>
