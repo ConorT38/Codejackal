@@ -57,14 +57,11 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
-	
-          <form class="navbar-form" role="search">
+          <form class="navbar-form" action="search.php" method="post" role="search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srch-
-term">
+			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
-search"></i></button>
+				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
 		</div>
 		</form>
