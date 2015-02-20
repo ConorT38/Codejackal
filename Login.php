@@ -3,7 +3,7 @@
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
-if (empty($_POST['username']) || empty($_POST['password'])) {
+if (empty($_POST['email']) || empty($_POST['pass'])) {
 $error = "Username or Password is invalid";
 }
 else
@@ -28,7 +28,7 @@ $pass= mysql_real_escape_string($pass);
 $db = mysql_select_db("codejackal_database", $conn);
 
 // SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from login where pass='$pass' AND email='$email'", $conn);
+$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$email; // Initializing Session
@@ -155,7 +155,7 @@ myForm.email.$dirty && myForm.email.$invalid" id = "clickme" value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
-<small><span style="color:orange"><?php echo $error; ?>
+<small><span style="color:orange"><?php echo $error; ?></span></small>
    </div>
 <script>
 bootstrap_alert = function() {}
