@@ -1,13 +1,46 @@
-<!--Start using sessions so that when the user goes through pages, it will know the same variables -Conor-->
-<?php
-if(!isset($_SESSION['fname'])){ //if login in session is not set
-    header("Location: http://www.codejackal.com/Login.php");
-}
-?>
-<?php
-session_start();
-?>
 <!DOCTYPE html>
+
+<?php
+if(isset($_POST['submitted']))
+{
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+if(! get_magic_quotes_gpc() )
+{
+   $title = addslashes ($_POST['title']);
+   $content = addslashes ($_POST['content']);
+}
+else
+{
+   $title = $_POST['title'];
+   $content = $_POST['content'];
+}
+$id = $_POST['id'];
+
+$sql = "INSERT INTO blog ".
+       "(title,content,id) ".
+       "VALUES('$title','$content','$id')";
+mysql_select_db('codejackal_database');
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not enter data: ' . mysql_error());
+}
+header('Location: redirect.php');
+mysql_close($conn);
+}
+else
+{
+?>
+
+
 <html>
   <head>
     <title>CodeJackal |<?php echo $fname?></title>
@@ -51,24 +84,16 @@ session_start();
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="User.php">Home</a></li>
+            <li class="active"><a href="User.php">Home</a></li>
              <li><a href="Userlist.php">My Posts</a></li>
             <li><a href="Games.php">Games</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
-			<div class="input-group-btn">
-				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-			</div>
-		</div>
-		</form>
-		</li>
-            <li class="active"><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="redirect.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
@@ -104,19 +129,19 @@ session_start();
       <h2>Post Your Blog Hommie!!!</h2>
         <p>Fill out the form below.</p>
           <div class ="form-group">
-          <form role ="form" action="dbinsert.php" method="post">
+          <form role ="form" action="<?php $_PHP_SELF ?>"method="post">
           <label>Title: <br />
-          <input name="title" type="text" class="form-control" placeholder="- Enter Your Blog Title Here -" /><br /></label>
+          <input name="title" id="title" type="text" class="form-control" placeholder="- Enter Your Blog Title Here -" /><br /></label>
       </div>
       
    
-<div ng-controller="countCtrl">
+
   <div class="form-group">
-  <label for="comment1">Content:</label>
-  <textarea ng-model="content" class="form-control" rows="5" type="text" id="comment1" name="comment1"  placeholder="Post your blog content!!!!"></textarea>
-  <small>Number of characters left: <span style ="color:orange"ng-bind="left()"></span></small>
+  <label for="Content">Content:</label>
+  <textarea name ="content" id = "content" class="form-control" rows="5" type="text" placeholder="Post your blog content!"></textarea>
+  
 </div>
-</div>
+
    <div class ="form-group">
   <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
 </div>
@@ -149,5 +174,11 @@ $('#clickme').on('click', function() {
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
+
+
+<?php
+  }
+  ?>
