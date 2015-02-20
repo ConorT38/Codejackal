@@ -172,7 +172,52 @@ allowtransparency="true">
   <div class="well">
     <center><h4>How hard we've been working:</h4>
     <br>
-    To the point of having to consume a bottle of whiskey while powerhousing through some of the backend and front-end code, we've been going full on with this code.
+    To the point of having to consume a bottle of whiskey while powerhousing through some of the backend and front-end code, we've been going full on with this code.<br>
+    
+    <h2>Here is a series of photos of us coding/building your beloved website:</h2><br>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="coding.jpg" alt="us codin' ">
+      <div class="carousel-caption">
+       
+      </div>
+    </div>
+    <div class="item">
+      <img src="coding2.jpg" alt="us codin'">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="coding3.jpg" alt="us codin'">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="coding4.jpg" alt="us codin'">
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
   </div>
   </div>
 </div>
