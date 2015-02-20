@@ -99,16 +99,13 @@
                                           echo $_POST['score']}; etc..-->
     <?php
 $dbhost = 'localhost';
-$dbuser = 'wearefif_codejac';
-$dbpass = 'codejackalsql';
-$dbname = 'wearefif_codejackal';
-
-// Create connection
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-} 
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
 
 $sql = "SELECT fname, lname, points FROM users";
 $result = $conn->query($sql);
