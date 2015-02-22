@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION['submitted'])){ //if login in session is not set
-    header("Location: http://www.codejackal.com/Login.php");
+    header("Location: http://www.codejackal.com/Login");
 }
 ?>
 <?php
@@ -59,16 +59,16 @@ if(! $conn )
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="User.php">Home</a></li>
-             <li><a href="Userlist.php">My Posts</a></li>
-            <li><a href="Games.php">Games</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
+            <li class="active"><a href="User">Home</a></li>
+             <li><a href="Userlist">My Posts</a></li>
+            <li><a href="Games">Games</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
        <li>
@@ -81,8 +81,8 @@ if(! $conn )
 		</div>
 		</form>
 		</li>
-            <li><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="redirect.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
