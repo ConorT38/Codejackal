@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION['email'])){
+header("Location:User");
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,16 +53,16 @@ $('#clickme').on('click', function() {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-             <li><a href="list.php">Archive</a></li>
-            <li><a href="random.php">Random</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
+            <li class="active"><a href="index">Home</a></li>
+             <li><a href="list">Archive</a></li>
+            <li><a href="random">Random</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li>
@@ -70,8 +75,8 @@ $('#clickme').on('click', function() {
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
@@ -117,7 +122,7 @@ $('#clickme').on('click', function() {
          <h2 >Welcome</h2>
           <p>Welcome to Codejackal.com! This is the home of all your lovely little needs for tutorials on other peoples projects, work, examples and quizzes for coding<br>
           Be sure to sign-up and have a look through some of the great tutorials that are one the site, or even go for signing one up for yourself! </p>
-          <p><a href="about.html">more...</a></p>
+          <p><a href="about">more...</a></p>
         </div>
         <div class="col-md-3"> 
           <h2>Tutorial</h2>
@@ -125,7 +130,7 @@ $('#clickme').on('click', function() {
 		 <p>&nbsp;</p>
 		 <p>We'll walk you through the full process with these simple steps:</p>
           
-          <p><a href="tutorial.php">more...</a></p></div>
+          <p><a href="tutorial">more...</a></p></div>
         <div class="col-md-3"> 
           <h2>Twitter Feed</h2>
           <!--Changed the motherfucking Twitter Feed pointer -->
