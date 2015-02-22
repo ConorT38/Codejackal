@@ -32,7 +32,7 @@ $query = mysql_query("select * from users where pass='$pass' AND email='$email'"
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$email; // Initializing Session
-header("location: User.php"); // Redirecting To Other Page
+header("location: User"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
 }
@@ -82,20 +82,20 @@ mysql_close($connection); // Closing Connection
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+           <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-             <li><a href="list.php">Archive</a></li>
-            <li><a href="random.php">Random</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
+            <li class="active"><a href="index">Home</a></li>
+             <li><a href="list">Archive</a></li>
+            <li><a href="random">Random</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
+          <form class="navbar-form" action="search" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -104,8 +104,8 @@ mysql_close($connection); // Closing Connection
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li class="active"><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li class="active"><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
@@ -137,7 +137,7 @@ mysql_close($connection); // Closing Connection
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form role="form" action = "member.php" ng-app="" ng-controller="validateCtrl" 
+         <form role="form" action = "User" ng-app="" ng-controller="validateCtrl" 
 name="myForm" novalidate>
     <div class="form-group">
       <label for="usr">E-mail:</label>
