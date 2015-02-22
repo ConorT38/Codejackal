@@ -66,7 +66,7 @@ $('#clickme').on('click', function() {
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
+          <form class="navbar-form" action="search" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
