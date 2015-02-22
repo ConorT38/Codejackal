@@ -62,7 +62,7 @@ $row = mysql_fetch_assoc($ses_sql);
 $login_session =$row['email'];
 if(!isset($login_session)){
 mysql_close($connection); // Closing Connection
-header('Location: Logout.php'); // Redirecting To Home Page
+header('Location: Logout'); // Redirecting To Home Page
 }
 ?>
 
@@ -109,16 +109,16 @@ header('Location: Logout.php'); // Redirecting To Home Page
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="User.php">Home</a></li>
-             <li><a href="Userlist.php">My Posts</a></li>
-            <li><a href="Games.php">Games</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li class="active"><a href="User">Home</a></li>
+             <li><a href="Userlist">My Posts</a></li>
+            <li><a href="Games">Games</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
