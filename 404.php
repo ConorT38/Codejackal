@@ -30,7 +30,7 @@
   </head>
 
   <body onload="timer = setTimeout(function() {
-                window.location = 'index.php';
+                window.location = 'index';
             }, 3000)">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
