@@ -1,11 +1,11 @@
  <?php
- mysql_connect("localhost","root","password") or die(mysql_error());
+ mysql_connect("localhost","codejackal","Waltherp99") or die(mysql_error());
  mysql_select_db("ENTRIES") or die("Couldn't connect to the database!");
  ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal | Search: <?php echo $srchterm ?></title>
+    <title>CodeJackal | Search: <?php echo $srchterm; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -42,16 +42,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-             <li><a href="list.php">Archive</a></li>
-            <li><a href="random.php">Random</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
+            <li><a href="index">Home</a></li>
+             <li><a href="list">Archive</a></li>
+            <li><a href="random">Random</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
@@ -64,8 +64,8 @@
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
