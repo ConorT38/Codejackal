@@ -60,7 +60,7 @@ function validateCtrl($scope) {
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index">Home</a></li>
+            <li><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
             <li><a href="random">Random</a></li>
             <li><a href="about">About Us</a></li>
@@ -79,7 +79,7 @@ function validateCtrl($scope) {
 		</form>
 		</li>
             <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li class="active"><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
