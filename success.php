@@ -1,5 +1,63 @@
 
 <!DOCTYPE html>
+
+<?php
+if(isset($_POST['submitted']))
+{
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+if(! get_magic_quotes_gpc() )
+{
+   $title = addslashes ($_POST['title']);
+   $content = addslashes ($_POST['content']);
+}
+else
+{
+   $title = $_POST['title'];
+   $content = $_POST['content'];
+}
+$id = $_POST['id'];
+
+$sql = "INSERT INTO blog ".
+       "(title,content,id) ".
+       "VALUES('$title','$content','$id')";
+mysql_select_db('codejackal_database');
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not enter data: ' . mysql_error());
+}
+header('Location: redirect.php');
+mysql_close($conn);
+}
+else
+{
+?>
+
+<!--Session data, sorry if it's messy -->
+<?php
+session_start();// Starting Session This is important to put this in the right position faggots
+
+// Storing Session
+$user_check=$_SESSION['login_user'];
+
+// SQL Query To Fetch Complete Information Of User
+$ses_sql=mysql_query("select email from users where email='$user_check'", $connection);
+$row = mysql_fetch_assoc($ses_sql);
+$login_session =$row['email'];
+if(!isset($login_session)){
+mysql_close($connection); // Closing Connection
+header('Location: Logout'); // Redirecting To Home Page
+}
+?>
+
 <html>
   <head>
     <title>CodeJackal | Success</title>
