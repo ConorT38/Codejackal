@@ -106,7 +106,7 @@ if(! $conn )
 {
   die('Could not connect: ' . mysql_error());
 }
-
+mysqli_select_db($conn, 'codejackal_database');
 $sql = "SELECT fname, lname, points FROM users";
 
 $result = mysqli_query($conn, $sql);
@@ -123,7 +123,7 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 
-close($conn);
+mysqli_close($conn);
 ?>  
 
     </div>
