@@ -4,7 +4,11 @@ if(!isset($_SESSION['email']){
 	header('Location:index');
 }
 ?>
-
+<?php
+$_SESSION['fname'] = $fname;
+$_SESSION['lname'] = $lname;
+$_SESSION['email'] = $email;
+?>
 <html>
   <head>
     <title>CodeJackal |<?php echo $fname; ?></title>
