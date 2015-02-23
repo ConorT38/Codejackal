@@ -160,7 +160,7 @@ allowtransparency="true">
        <hr>
      We've been working a lot lately on getting the site up and running.<br>
      This is an example of what the blog post api will look like once we get everthing finished!<br>
-     Click <b><a href="exampleblog.php">Here</a></b> to view it!
+     Click <b><a href="exampleblog">Here</a></b> to view it!
      
      <br><h3>How much work we have left to do:</h3>
      
