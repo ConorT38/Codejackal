@@ -108,14 +108,16 @@ if(! $conn )
 }
 
 $sql = "SELECT fname, lname, points FROM users";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-     echo "<table><tr><th>First name</th><th>Last name</th><th>Score</th></tr>";
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         echo "<tr><td>" . $row["fname"]. " " . $row["lname"]. "</td><td>" . $row["points"]. "</td><td></tr>";
-     }
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+	echo "<table><tr><th>First name</th><th>Last name</th><th>Score</th></tr>";
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+       echo "<tr><td>" . $row["fname"]. " " . $row["lname"]. "</td><td>" . $row["points"]. "</td><td></tr>";
+    }
+
      echo "</table>";
 } else {
      echo "0 results";
