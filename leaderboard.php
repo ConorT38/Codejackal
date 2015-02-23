@@ -123,7 +123,7 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 
-$conn->close();
+close($conn);
 ?>  
 
     </div>
