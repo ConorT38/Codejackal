@@ -1,6 +1,6 @@
  <?php
  mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
- mysql_select_db("ENTRIES") or die("Couldn't connect to the database!");
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
  ?>
 <!DOCTYPE html>
 <html>
