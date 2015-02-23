@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+if(!isset($_SESSION['email']){
+	header('Location:index');
+}
+?>
 
 <html>
   <head>
