@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+?>
 <html>
   <head>
     <title>CodeJackal | Leaderboard</title>
@@ -98,14 +109,6 @@
          loop will be something like "for(int i=0; i<list.size(); i++){
                                           echo $_POST['score']}; etc..-->
     <?php
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
 mysqli_select_db($conn, 'codejackal_database');
 $sql = "SELECT fname, lname, points FROM users";
 
