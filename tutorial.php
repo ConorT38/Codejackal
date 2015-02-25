@@ -131,6 +131,13 @@
       On completeion of the form, press the submit button and you will be moved forward to the userID page!</p><center><img src="signup1.png" class="img-responsive" width="400" height="500"/></center>
       </div>
       </div>
+        <div class="container">
+      <div class="jumbotron">
+      
+      <h3 id="Step3">Step 3:</h3>
+      <p>You can now proceed to post your own blog/tutorial demonstrating your project or snippet etc.. by simply putting in the necessary details, you're post will be added to the site!</p><center><img src="signup2.png" class="img-responsive" width="400" height="500"/></center>
+      </div>
+      </div>
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
