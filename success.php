@@ -49,11 +49,11 @@ session_start();// Starting Session This is important to put this in the right p
 $user_check=$_SESSION['login_user'];
 
 // SQL Query To Fetch Complete Information Of User
-$ses_sql=mysql_query("select email from users where email='$user_check'", $connection);
+$ses_sql=mysql_query("select email from users where email='$user_check'", $conn);
 $row = mysql_fetch_assoc($ses_sql);
 $login_session =$row['email'];
 if(!isset($login_session)){
-mysql_close($connection); // Closing Connection
+mysql_close($conn); // Closing Connection
 header('Location: Logout'); // Redirecting To Home Page
 }
 ?>
