@@ -49,17 +49,13 @@ if(!isset($_SESSION['email']){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index">CodeJackal</a>
+          <a class="navbar-brand" href="User">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="User">Home</a></li>
              <li><a href="Userlist">My Posts</a></li>
-            <li><a href="Games">Games</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
-          </ul>
+            </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
             <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
