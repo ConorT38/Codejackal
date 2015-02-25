@@ -12,7 +12,7 @@ if(! $conn )
 }
 ?>
 <!DOCTYPE html>
-<html ng-app="">
+<html>
   <head>
     <title>CodeJackal | Signup</title>
     <meta charset="utf-8">
@@ -45,7 +45,7 @@ if(! $conn )
 	<link rel="shortcut icon" href="food.ico">
   </head>
 
-  <body ng-controller="userController">
+  <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -141,37 +141,36 @@ if(! $retval )
 {
   die('Could not enter data: ' . mysql_error());
 }
-echo "Entered data successfully\n";
-header("Location:www.codejackal.com/Login.php");
+header("Location:www.codejackal.com/success");
 mysql_close($conn);
 }
 else
 {
 ?>
-         <form role="form" method="post" action="<?php $_PHP_SELF ?>">
+         <form role="form" method="post" action="Signup.php">
 
       <label for="usr">First Name:</label>
-      <input type="text" class="form-control"   ng-disabled="!edit" ng-model="fName" id="fname" name="fname">
+      <input type="text" class="form-control"    id="fname" name="fname">
       <br>
       <br>
 
       <label for="usr">Last Name:</label>
-      <input type="text" class="form-control" ng-disabled="!edit"  ng-model="lName" id="lname" name="lname">
+      <input type="text" class="form-control"  id="lname" name="lname">
 <br>
       <br>
       <label for="usr">E-mail:</label>
-      <input type="text" class="form-control"  ng-disabled="!edit" ng-model="email" id="email" name="email">
+      <input type="text" class="form-control"  id="email" name="email">
 <br>
       <br>
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" ng-model="passw1" id="password" placeholder ="Enter in dat password yo." name="pass">
+      <input type="password" class="form-control"  id="password" placeholder ="Enter in dat password yo." name="pass">
   <br>
       <label for="pwd">Confirm Password:</label>
-      <input type="password" class="form-control" ng-model="passw2" id="password2" placeholder ="Enter in dat password yo." name="password2">
+      <input type="password" class="form-control"  id="password2" placeholder ="Enter in dat password yo." name="password2">
   <br>
   <br>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "submit" class="btn btn-success" ng-disabled="error || incomplete" id = "clickme" value="Submit!" name="clickme"/>&nbsp;&nbsp;&nbsp;
+        <input type = "submit" class="btn btn-success" id = "clickme" value="Submit!" name="clickme"/>&nbsp;&nbsp;&nbsp;
          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
