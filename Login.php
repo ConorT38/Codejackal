@@ -32,11 +32,11 @@ $query = mysql_query("select * from users where pass='$pass' AND email='$email'"
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$email; // Initializing Session
-header("location: User"); // Redirecting To Other Page
+header("location: User.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
 }
-mysql_close($connection); // Closing Connection
+mysql_close($conn); // Closing Connection
 }
 }
 ?>
@@ -120,8 +120,7 @@ mysql_close($connection); // Closing Connection
           <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
       <div class="modal-body">
-        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>
-        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
+        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
         <br>
         What you're gonna want to do, is just enter in all of your silly little credentials (Email, Password) and I'll let the server do the rest.<br>
         Trust me, it's easy!
@@ -137,25 +136,20 @@ mysql_close($connection); // Closing Connection
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form role="form" action = "User" ng-app="" ng-controller="validateCtrl" 
-name="myForm" novalidate>
+         <form role="form" action = "User.php" name="myForm" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
-      <input type="email" class="form-control" id="email" ng-model="email" required name="email"><small><span style="color:orange" ng-show="myForm.email.$dirty && myForm.email.$invalid"><span ng-show="myForm.email.$error.required">Email is required.</span>
-<span ng-show="myForm.email.$error.email">Invalid email address.</span>
-</span></small>
+      <input type="email" class="form-control" id="email"  name="email">
     </div><form role="form">
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-myForm.email.$dirty && myForm.email.$invalid" id = "clickme" value="Submit!"/>
+        <input type = "button" class="btn btn-success"  value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
-<small><span style="color:orange"><?php echo $error; ?></span></small>
    </div>
 <script>
 bootstrap_alert = function() {}
