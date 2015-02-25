@@ -6,7 +6,7 @@ $_SESSION['email'] = $email;
 ?>
 <?php
 if(!isset($_SESSION['email']){
-	header('Location:index');
+	header('Location:index.php');
 }
 ?>
 
@@ -94,7 +94,7 @@ if(!isset($_SESSION['email']){
       <h2>Post Your Blog!</h2>
         <p>Fill out the form below.</p>
           <div class ="form-group">
-          <form role ="form" action="success" method="post">
+          <form role ="form" action="success.php" method="post">
           <label>Title: <br />
           <input name="title" id="title" type="text" class="form-control" placeholder="- Enter Your Blog Title Here -" /><br /></label>
       </div>
