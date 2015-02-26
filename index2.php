@@ -113,7 +113,7 @@ $('#clickme').on('click', function() {
     <li data-target="#myCarousel" data-slide-to="3"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Slide Content -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <img src="img_1.jpg" alt="image1">
@@ -128,7 +128,7 @@ $('#clickme').on('click', function() {
     </div>
 
     <div class="item">
-      <img src="img_4" alt="Image4">
+      <img src="img_4.jpg" alt="Image4">
     </div>
   </div>
 
