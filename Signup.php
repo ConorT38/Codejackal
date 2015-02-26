@@ -134,8 +134,8 @@ else
 #updated the database details
 mysql_select_db('codejackal_database');
 $sql = "INSERT INTO users ".
-       "(fname,lname, pass, email, ) ".
-       "VALUES('$fname','$lname','$email',$pass)";
+       "(fname,lname, pass, email) ".
+       "VALUES('$fname','$lname','$email','$pass')";
 
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
