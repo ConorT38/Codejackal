@@ -125,7 +125,7 @@ $('#clickme').on('click', function() {
           <p><a href="about">more...</a></p>
         </div>
         <div class="col-md-3"> 
-          <h2>Tutorial</h2>
+          <h2><a href="tutorial">Tutorial</a></h2>
           <p>So, to get yo started, we're gonna have to go through all the steps to setting up, creating and using a profile.</p>
 		 <p>&nbsp;</p>
 		 <p>We'll walk you through the full process with these simple steps:</p>
