@@ -110,45 +110,8 @@ if(! $conn )
         <h1>Enter your credentials in the corresponding spaces below:</h1>      
          <br>
 <!--Updated DB Details -->
-           <?php
-if(isset($_POST['clickme']))
 
-{
-
-
-if(! get_magic_quotes_gpc() )
-{
-   $fname = addslashes ($_POST['fname']);
-   $lname = addslashes ($_POST['lname']);
-   $email = addslashes($_POST['email']);
-   $pass = addslashes($_POST['pass']);
-}
-else
-{
-   $fname = $_POST['fname'];
-   $lname = $_POST['lname'];
-   $email = $_POST['email'];
-   $pass= $_POST['pass'];
-}
-#This is how you comment when you're in the parameters of php
-#updated the database details
-mysql_select_db('codejackal_database');
-$sql = "INSERT INTO users ".
-       "(fname,lname, pass, email) ".
-       "VALUES('$fname','$lname','$email','$pass')";
-
-$retval = mysql_query( $sql, $conn );
-if(! $retval )
-{
-  die('Could not enter data: ' . mysql_error());
-}
-header("Location:www.codejackal.com/success");
-mysql_close($conn);
-}
-else
-{
-?>
-         <form role="form" method="post" action="Signup.php">
+         <form role="form" method="post" action="signupsuccess.php">
 
       <label for="usr">First Name:</label>
       <input type="text" class="form-control"    id="fname" name="fname">
@@ -177,9 +140,7 @@ else
       </div>
   </form>
   <script src = "myUsers.js"></script>
-  <?php
-}
-?>
+
       </div>
     </div>
 
