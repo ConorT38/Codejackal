@@ -136,7 +136,7 @@ mysql_close($conn); // Closing Connection
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form role="form" action = "User.php" name="myForm" >
+         <form role="form" action = "User.php" name="myForm" method="post" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
       <input type="email" class="form-control" id="email"  name="email">
