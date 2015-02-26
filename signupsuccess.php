@@ -1,4 +1,13 @@
            <?php
+           $dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+           
 if(isset($_POST['clickme']))
 
 {
@@ -72,7 +81,7 @@ mysql_close($conn);
 	<link rel="shortcut icon" href="food.ico">
   </head>
 
-  <body onLoad=timer = timeout(function(){
+  <body onLoad="timer = setTimeout(function(){
                       window.location= 'Login';
                       },2000)">
     <nav class="navbar navbar-inverse">
