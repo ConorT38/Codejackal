@@ -58,7 +58,7 @@ if(! $conn )
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index">Home</a></li>
+            <li><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
             <li><a href="random">Random</a></li>
             <li><a href="about">About Us</a></li>
@@ -67,7 +67,7 @@ if(! $conn )
           </ul>
           <ul class="nav navbar-nav navbar-right">
              <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
+          <form class="navbar-form" action="search.php" method="get" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -76,7 +76,7 @@ if(! $conn )
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
+            <li class="active"><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
             <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
@@ -132,10 +132,11 @@ else
 }
 #This is how you comment when you're in the parameters of php
 #updated the database details
+mysql_select_db('codejackal_database');
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email, ) ".
        "VALUES('$fname','$lname','$email',$pass)";
-mysql_select_db('codejackal_database');
+
 $retval = mysql_query( $sql, $conn );
 if(! $retval )
 {
@@ -164,9 +165,6 @@ else
       <br>
       <label for="pwd">Password:</label>
       <input type="password" class="form-control"  id="password" placeholder ="Enter in dat password yo." name="pass">
-  <br>
-      <label for="pwd">Confirm Password:</label>
-      <input type="password" class="form-control"  id="password2" placeholder ="Enter in dat password yo." name="password2">
   <br>
   <br>
     <div class="col-sm-offset-0 col-sm-10">
