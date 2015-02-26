@@ -1,12 +1,75 @@
 <!DOCTYPE html>
+
 <?php
-$_SESSION['fname'] = $fname;
-$_SESSION['lname'] = $lname;
-$_SESSION['email'] = $email;
+if(isset($_POST['submitted']))
+{
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+if(! get_magic_quotes_gpc() )
+{
+   $title = addslashes ($_POST['title']);
+   $description = addslashes ($_POST['description']);
+   $content = addslashes ($_POST['content']);
+   $tags = addslashes ($_POST['tags']);
+}
+else
+{
+   $title = $_POST['title'];
+   $description = $_POST['description'];
+   $content = $_POST['content'];
+   $tags = $_POST['tags'];
+}
+$id = $_POST['id'];
+
+$sql = "INSERT INTO blog ".
+       "(title,description,content,tags,id) ".
+       "VALUES('$title','$description','$content','$tags','$id')";
+mysql_select_db('codejackal_database');
+$retval = mysql_query( $sql, $conn );
+
+if(! $retval )
+{
+  die('Could not enter data: ' . mysql_error());
+}
+
+mysql_close($conn);
+
+}
+
+else
+{
 ?>
+
+<!--Session data, sorry if it's messy -->
 <?php
-if(!isset($_SESSION['email']){
-	header('Location:index.php');
+// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
+// Selecting Database
+$db = mysql_select_db("codejackal_database", $conn);
+
+session_start();// Starting Session This is important to put this in the right position faggots
+
+// Storing Session
+$user_check=$_SESSION['login_user'];
+
+// SQL Query To Fetch Complete Information Of User
+$ses_sql=mysql_query("select email from users where email='$user_check'", $connection);
+$row = mysql_fetch_assoc($ses_sql);
+$login_session =$row['email'];
+if(!isset($login_session)){
+mysql_close($connection); // Closing Connection
+header('Location: Logout'); // Redirecting To Home Page
 }
 ?>
 
@@ -49,16 +112,20 @@ if(!isset($_SESSION['email']){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="User">CodeJackal</a>
+          <a class="navbar-brand" href="index.php">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="User">Home</a></li>
+            <li class="active"><a href="User">Home</a></li>
              <li><a href="Userlist">My Posts</a></li>
-            </ul>
+            <li><a href="Games">Games</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
@@ -84,29 +151,39 @@ if(!isset($_SESSION['email']){
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname; ?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
          <br>
     </div>
 </div>
  <div class="container">
         <div class="jumbotron">
       <!-- Beginning of blog post(Beta)_Seamus-->
-      <h2>Post Your Blog!</h2>
+      <h2>Post Your Blog Hommie!!!</h2>
         <p>Fill out the form below.</p>
           <div class ="form-group">
-          <form role ="form" action="success.php" method="post">
-          <label>Title: <br />
-          <input name="title" id="title" type="text" class="form-control" placeholder="- Enter Your Blog Title Here -" /><br /></label>
-      </div>
-  <div class="form-group">
-  <label for="Content">Content:</label>
-  <textarea name ="content" id = "content" class="form-control" rows="5" type="text" placeholder="Post your blog content!"></textarea>
-  
-</div>
+          <form role ="form" action="<?php $_PHP_SELF ?>"method="post">
+          <label>Title: </label>
+          <textarea name="title" id="title" type="text" class="form-control" rows="1" placeholder="- Enter Your Blog Title Here -"></textarea>
+      <br /><br /></div>
+      
+          <div class ="form-group">
+          <label>Description: </label>
+          <textarea name="description" id="description" type="text" class="form-control" rows = "2" placeholder="- Describe Your Blog Here -"></textarea>
+          <br /><br /></div>
+
+          <div class="form-group">
+          <label for="Content">Content:</label>
+          <textarea name ="content" id = "content" class="form-control" rows="15" type="text" placeholder="Post your blog content!"></textarea>  
+          <br /><br /></div>
+
+          <div class ="form-group">
+          <label>Tags: </label>
+          <textarea name="tags" id="tags" type="text" class="form-control" rows="1" placeholder="- Tag Your Blog Here (use , to seperate tags) -"></textarea>
+          <br /><br /></div>
+
 
    <div class ="form-group">
-  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;
-  <input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
+  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
 </div>
  <script>
   bootstrap_alert = function() {}
@@ -116,7 +193,7 @@ bootstrap_alert.warning = function(message) {
     
 
 $('#clickme').on('click', function() {
-            bootstrap_alert.warning('Success!');
+            bootstrap_alert.warning('Your e-mail has been received by the team!');
 });
   </script>
   </form>
