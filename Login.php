@@ -50,8 +50,7 @@ $_POST['email'] = $_SESSION['email'];
           <ul class="nav navbar-nav">
             <li class="active"><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
-            <li><a href="random">Random</a></li>
-            <li><a href="about">About Us</a></li>
+             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
