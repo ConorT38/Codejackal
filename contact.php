@@ -28,7 +28,7 @@
 })
   </script>
 
-	<link rel="shortcut icon" href="food.ico">
+  <link rel="shortcut icon" href="food.ico">
   </head>
 
   <body>
@@ -54,14 +54,14 @@
           <ul class="nav navbar-nav navbar-right">
              <li>
           <form class="navbar-form" action="search" method="post" role="search">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
-			<div class="input-group-btn">
-				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-			</div>
-		</div>
-		</form>
-		</li>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
+      <div class="input-group-btn">
+        <button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+    </form>
+    </li>
             <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
@@ -145,7 +145,7 @@ if (isset($_REQUEST['submitted'])) {
   if (empty($errors)) { 
   $from = "Order in from " . $firstname. ""; //Site name
   // Change this to your email address you want to form sent to
-  $to = "codejackals@gmail.com"; 
+  $to = "info@codejackal.com"; 
   $subject = "Faggots! Someone Commented in from " . $name . "";
   
   $message = "Message from " . $firstname . " " . $lastname . " 
@@ -170,7 +170,7 @@ if (isset($_REQUEST['submitted'])) {
   }
 //End of errors array
   ?>
-        <h4>E-mail us at: codejackals@gmail.com</h4>
+        <h4>E-mail us at: info@codejackal.com</h4>
         <br>
         <p>Try get in contact with use if you have any queries on our site or services!<br>We're nice, we reply sometimes if we like you.</p>
       </div>
@@ -213,13 +213,13 @@ if (isset($_REQUEST['submitted'])) {
 </div>
 </div>
       <div class="clearfix visible-lg"></div>
-	  <center>
-	  <footer class ="footer">
-	  <div class = "container">
-	  <p class=" text-muted">Code Jackal &copy; 2015</p>
-	  </div>
-	  </footer>
-	  </center>
+    <center>
+    <footer class ="footer">
+    <div class = "container">
+    <p class=" text-muted">Code Jackal &copy; 2015</p>
+    </div>
+    </footer>
+    </center>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
