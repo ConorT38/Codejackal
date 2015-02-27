@@ -118,7 +118,7 @@ header('Location: Logout'); // Redirecting To Home Page
           <ul class="nav navbar-nav">
             <li class="active"><a href="User">Home</a></li>
              <li><a href="Userlist">My Posts</a></li>
-            <li><a href="Games">Games</a></li>
+           
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
