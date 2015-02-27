@@ -1,28 +1,57 @@
-<?php
-if(!isset($_SESSION['email'])){ //if login in session is not set
-    header("Location: http://www.codejackal.com/Login");
-}
-?>
+
 <?php
 setcookie(time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
 <?php
-if(isset($_POST['submitted']))
+if (!isset($_POST['submit'])) {
+	header("Location: Login.php");
+else{
+session_start(); // Starting Session
+$error=''; // Variable To Store Error Message
+if (isset($_POST['submit'])) {
+if (empty($_POST['email']) || empty($_POST['pass'])) {
+$error = "Username or Password is invalid";
+}
+else
 {
+// Define $email and $pass
+$email=$_POST['email'];
+$pass=$_POST['pass'];
+
+// Establishing Connection with Server by passing server_name, user_id and password as a parameter
 $dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
 $dbpass = 'Waltherp99';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
 
+// To protect MySQL injection for Security purpose
+$email = stripslashes($email);
+$pass = stripslashes($pass);
+$email = mysql_real_escape_string($email);
+$pass= mysql_real_escape_string($pass);
+
+// Selecting Database, make sure to change this to user if you mix it up
+$db = mysql_select_db("codejackal_database", $conn);
+
+// SQL query to fetch information of registerd users and finds user match.
+$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
+$rows = mysql_num_rows($query);
+if ($rows == 1) {
+$_SESSION['login_user']=$email; // Initializing Session
+$row = $rows->fetch_assoc();
+} else {
+  header("Location: Login");
+}
+mysql_close($conn); // Closing Connection
+}
+}
+}
 ?>
+
 <html>
   <head>
-    <title>CodeJackal |<?php echo $fname; ?></title>
+    <title>CodeJackal |<?php echo $row['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -68,8 +97,7 @@ if(! $conn )
             <li><a href="Games">Games</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
-          </ul>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>          </ul>
           <ul class="nav navbar-nav navbar-right">
        <li>
           <form class="navbar-form" action="search.php" method="post" role="search">
@@ -78,7 +106,7 @@ if(! $conn )
 			<div class="input-group-btn">
 				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
-		</div>
+	
 		</div>
 		</form>
 		</li>
@@ -109,7 +137,7 @@ if(! $conn )
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $fname;?>! We missed you kinda.</h1>      
          <br>
          
          <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs.php">Here</button>
