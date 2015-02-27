@@ -143,13 +143,15 @@ if (isset($_REQUEST['submitted'])) {
     //End of validation 
   if (isset($_REQUEST['submitted'])) {
   if (empty($errors)) { 
-  $from = "Order in from " . $firstname. ""; //Site name
+  $from = "Fucking comment from " . $firstname. ""; //Site name
   // Change this to your email address you want to form sent to
   $to = "info@codejackal.com"; 
   $subject = "Faggots! Someone Commented in from " . $name . "";
   
   $message = "Message from " . $firstname . " " . $lastname . " 
+  
   E-Mail: " . $Email . " 
+  
   Comment: ". $comment1 . "";
   mail($to,$subject,$message,$from);
   }
