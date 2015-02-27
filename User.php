@@ -137,7 +137,7 @@ mysql_close($conn); // Closing Connection
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname;?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $row['fname'];?>! We missed you kinda.</h1>      
          <br>
          
          <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs.php">Here</button>
