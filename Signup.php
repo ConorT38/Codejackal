@@ -2,6 +2,7 @@
 setcookie(time() + (86400 * 30), "/");
 ?>
            <?php
+           while(isset($_POST['clickme'])){
            if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass'])&&){
            	header("Location: Signup.php");
            }
@@ -52,6 +53,7 @@ if(! $retval )
 
 
 mysql_close($conn);
+}
 }
 }
 header('Location: signupsuccess.php');
