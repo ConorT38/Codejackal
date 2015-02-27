@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="contactformcount">
+<html>
   <head>
     <title>CodeJackal | Contact</title>
     <meta charset="utf-8">
@@ -194,11 +194,10 @@ if (isset($_REQUEST['submitted'])) {
   <label>E-Mail: <br />
   <input name="Email" type="text" class="form-control" placeholder="- Enter Email -" /><br /></label>
 </div>
-<div ng-controller="countCtrl">
+<div>
     <div class="form-group">
   <label for="comment1">Comment:</label>
-  <textarea ng-model="message" class="form-control" rows="5" type="text" id="comment1" name="comment1"  placeholder="Leave us a comment!"></textarea>
-  <small>Number of characters left: <span style ="color:orange"ng-bind="left()"></span></small>
+  <textarea  class="form-control" rows="5" type="text" id="comment1" name="comment1"  placeholder="Leave us a comment!"></textarea>
 </div>
 </div>
    <div class ="form-group">
