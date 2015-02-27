@@ -124,7 +124,7 @@ if (isset($_REQUEST['submitted'])) {
   //Check for a valid Email
   if (!empty($_REQUEST['Email'])) {
   $Email = $_REQUEST['Email'];
-  $pattern = "/^[a-zA-Z0-9\_]{7,20}/";
+  $pattern = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
   if (preg_match($pattern,$Email)){ $Email = $_REQUEST['Email'];}
   else{ $errors[] = 'Your Email can only be numbers and letters.';}
   } else {$errors[] = 'You forgot to enter your Email.';}
