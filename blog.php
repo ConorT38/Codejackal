@@ -96,19 +96,19 @@ search"></i></button>
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1><?php echo $title; ?></h1>      
+        <h1><?php echo $row['title']; ?></h1>      
          <br>
 
     </div>
 </div>
  <div class="container">
       <div class="jumbotron">
-        <p><i><?php echo $description;?></i></p>     
+        <p><i><?php echo $row['description'];?></i></p>     
          <br>
          <br>
          <br>
          <br>
-        <p><?php echo $content;?>></p>     
+        <p><?php echo $row['content'];;?>></p>     
          <br>
 
     </div>
