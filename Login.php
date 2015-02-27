@@ -1,44 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start(); // Starting Session
-$error=''; // Variable To Store Error Message
-if (isset($_POST['submit'])) {
-if (empty($_POST['email']) || empty($_POST['pass'])) {
-$error = "Username or Password is invalid";
-}
-else
-{
-// Define $email and $pass
-$email=$_POST['email'];
-$pass=$_POST['pass'];
-
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-
-// To protect MySQL injection for Security purpose
-$email = stripslashes($email);
-$pass = stripslashes($pass);
-$email = mysql_real_escape_string($email);
-$pass= mysql_real_escape_string($pass);
-
-// Selecting Database, make sure to change this to user if you mix it up
-$db = mysql_select_db("codejackal_database", $conn);
-
-// SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-$_SESSION['login_user']=$email; // Initializing Session
-header("location: User.php"); // Redirecting To Other Page
-} else {
-$error = "Username or Password is invalid";
-}
-mysql_close($conn); // Closing Connection
-}
-}
+$_POST['email'] = $_SESSION['email'];
 ?>
 <html>
   <head>
@@ -146,7 +108,7 @@ mysql_close($conn); // Closing Connection
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success"  value="Submit!"/>
+        <input type = "submit" class="btn btn-success"  value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
