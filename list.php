@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<?php
+$servername = "localhost";
+$username = "codejackal_admin";
+$password = "Waltherp99";
+$dbname = "codejackal_database";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+?>
 <html>
   <head>
     <title>CodeJackal | Archive</title>
@@ -97,6 +110,29 @@
       
       </div>
     </div>
+    <div class="container">
+    <?php
+    $sql = "SELECT * FROM blog";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+ echo "<div class="jumbotron">"
+    echo "<center><h2>Tutorial</h2></center><br><br>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<h3>Title:</h3> <a href="blog?id=".$row["postID"]."">"".$row["title"].""</b><br><h3>Decsription: </h3>".$row["description"]."</td></tr>";
+    }
+    echo "</div>";
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+    
+    ?>
+    
+    </div>
+    
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
