@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php
 $dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
 $dbpass = 'Waltherp99';
