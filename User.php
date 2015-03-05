@@ -4,50 +4,14 @@ setcookie(time() + (86400 * 30), "/");
 ?>
 <!DOCTYPE html>
 <?php
-if (!isset($_POST['submit'])) {
+if (!isset($_SESSION['email'])) {
 	header("Location: Login.php");
 else{
-session_start(); // Starting Session
-$error=''; // Variable To Store Error Message
-if (isset($_POST['submit'])) {
-if (empty($_POST['email']) || empty($_POST['pass'])) {
-$error = "Username or Password is invalid";
-}
-else
-{
-// Define $email and $pass
-$email=$_POST['email'];
-$pass=$_POST['pass'];
 
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
 
-// To protect MySQL injection for Security purpose
-$email = stripslashes($email);
-$pass = stripslashes($pass);
-$email = mysql_real_escape_string($email);
-$pass= mysql_real_escape_string($pass);
 
-// Selecting Database, make sure to change this to user if you mix it up
-$db = mysql_select_db("codejackal_database", $conn);
-
-// SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-$_SESSION['login_user']=$email; // Initializing Session
-$row = $rows->fetch_assoc();
-} else {
-  header("Location: Login");
-}
-mysql_close($conn); // Closing Connection
-}
-}
-}
 ?>
+
 
 <html>
   <head>
@@ -96,8 +60,9 @@ mysql_close($conn); // Closing Connection
              <li><a href="Userlist">My Posts</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>          </ul>
-          <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>          
+            </ul>          
+            <ul class="nav navbar-nav navbar-right">
        <li>
           <form class="navbar-form" action="search.php" method="post" role="search">
 		<div class="input-group">
