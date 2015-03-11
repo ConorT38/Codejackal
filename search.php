@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal | Search: <?php echo $srchterm; ?></title>
+    <title>CodeJackal | Search: <?php echo $_POST['srchterm']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -93,7 +93,7 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Search results for : <?php $_POST['srchterm']; ?></h1>      
+        <h1>Search results for : <?php echo $_POST['srchterm']; ?></h1>      
         
   <?php
 
@@ -128,17 +128,17 @@ $title =$row['title'];
 	$id=$row['postID'];
 		
 //-display the result of the array
-
+echo '</div></div>';
 echo '<div class="container">';
-echo '<div class="jumbotron">\n';
-echo '<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>';
+echo '<div class="jumbotron">';
+echo '<h3><a href=\"search.php?id=$id\">'  .$title .'</a></h3><br>';
 echo "<h5><i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
 }
 }
 else{
-echo "<p>Please enter a search query</p>";
+echo "<p>Please enter a search query</p></div></div>";
 }
 }
 }
@@ -173,10 +173,10 @@ $title =$row['title'];
 	$id=$row['postID'];
 	
 //-display the result of the array
-
+echo '</div></div>';
 echo '<div class="container">';
-echo '<div class="jumbotron">\n';
-echo "<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>";
+echo '<div class="jumbotron">';
+echo '<h3><a href=\"search.php?id=$id\">'  .$title .'</a></h3><br>';
 echo "<h5><i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
@@ -207,7 +207,7 @@ while($row=mysql_fetch_array($result)){
 	$content=$row['content'];
 
 //-display the result of the array
-
+echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">\n';
 echo "<h3>"  .$title ."</h3><br><hr>";
@@ -222,8 +222,6 @@ echo "</div>";
 ?>
        
          
-      </div>
-    </div>
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
