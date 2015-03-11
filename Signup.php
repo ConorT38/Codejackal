@@ -73,29 +73,7 @@ if (isset($_REQUEST['submitted'])) {
   else{ $errors[] = 'Your password can only contain _, 1-9, A-Z or a-z, and  6-20 characters long long.';}
   } else {$errors[] = 'You forgot to enter your Last Name.';}
 
-mysql_select_db('codejackal_database');
-$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-	$errors[] = 'That user already exists, try another email';
-}else
-{
-	
 
-$sql = "INSERT INTO users ".
-       "(fname,lname, pass, email) ".
-       "VALUES('$fname','$lname','$pass','$email')";
-
-$retval = mysql_query( $sql, $conn );
-
-if(! $retval )
-{
-  die('Could not enter data: ' . mysql_error());
-}
-
-
-mysql_close($conn);
-}
 }
 }
 }
@@ -213,7 +191,7 @@ header('Location: signupsuccess.php');
          <br>
 <!--Updated DB Details -->
 
-         <form role="form" method="post" action="Signup.php">
+         <form role="form" method="post" action="signupsuccess.php">
 
       <label for="usr">First Name:</label>
       <input type="text" class="form-control"    id="fname" name="fname">
