@@ -1,5 +1,39 @@
 
 <!DOCTYPE html>
+<?php
+if(empty($errors[])){
+
+$host = "localhost";
+$user = "codejackal_admin";
+$password = "Waltherp99";
+$conn = mysql_connect($host, $user, $password);
+$db = mysql_select_db('codejackal_database', $conn);
+$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
+$rows = mysql_num_rows($query);
+if ($rows == 1) {
+	$errors[] = 'That user already exists, try another email';
+}else
+{
+	
+
+$sql = "INSERT INTO users ".
+       "(fname,lname, pass, email) ".
+       "VALUES('$fname','$lname','$pass','$email')";
+
+$retval = mysql_query( $sql, $conn );
+
+if(! $retval )
+{
+  die('Could not enter data: ' . mysql_error());
+}
+}
+else{
+	header('Location: Login.php');
+}
+
+mysql_close($conn);
+}
+?>
 <html>
   <head>
     <title>CodeJackal | Success!</title>
