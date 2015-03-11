@@ -93,7 +93,7 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Search results for : <?php $srchterm ?></h1>      
+        <h1>Search results for : <?php $_POST['srchterm']; ?></h1>      
         
       <?php 
 	  if(isset($_POST['submit'])){ 
@@ -105,17 +105,17 @@
 	  //-select  the database to use 
 	  $mydb=mysql_select_db("yourDatabase"); 
 	  //-query  the database table 
-	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $srchterm .  "%' OR DESCR LIKE '%" . $srchterm ."%'"; 
+	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $name .  "%' OR DESCR LIKE '%" . $name ."%'"; 
 	  //-run  the query against the mysql query function 
 	  $result=mysql_query($sql); 
 	  //-create  while loop and loop through result set 
 	  while($row=mysql_fetch_array($result)){ 
-	          $TITLE  =$row['TITLE']; 
+	          $title  =$row['title']; 
 	          $postID=$row['postID']; 
-	          $Descr=$row['DESCR']; 
+	          $description=$row['description']; 
 	  //-display the result of the array 
 	  echo "<ul>\n"; 
-	  echo "<li>" . "<a  href=\"search.php?id=$postID\">" ."<br><br><u>" .$TITLE . "</u><br><br><u> " . $DESCR ."</u><br>".  "</a></li>\n"; 
+	  echo "<li>" . "<a  href=\"search.php?id=$postID\">" ."<br><br><u>" .$title . "</u><br><br><u> " . $description ."</u><br>".  "</a></li>\n"; 
 	  echo "</ul>"; 
 	  } 
 	  } 
