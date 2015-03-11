@@ -213,7 +213,7 @@ header('Location: signupsuccess.php');
          <br>
 <!--Updated DB Details -->
 
-         <form role="form" method="post" action="signupsuccess.php">
+         <form role="form" method="post" action="Signup.php">
 
       <label for="usr">First Name:</label>
       <input type="text" class="form-control"    id="fname" name="fname">
