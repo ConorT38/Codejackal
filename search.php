@@ -54,7 +54,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
+          <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -95,32 +95,121 @@
       <div class="jumbotron">
         <h1>Search results for : <?php $_POST['srchterm']; ?></h1>      
         
-      <?php 
-	  if(isset($_POST['submit'])){ 
-	  if(isset($_GET['go'])){ 
-	  if(preg_match("/^[  a-zA-Z]+/", $_POST['srchterm'])){ 
-	  $name=$_POST['srchterm']; 
-	  //-query  the database table 
-	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $name .  "%' OR DESCR LIKE '%" . $name ."%'"; 
-	  //-run  the query against the mysql query function 
-	  $result=mysql_query($sql); 
-	  //-create  while loop and loop through result set 
-	  while($row=mysql_fetch_array($result)){ 
-	          $title  =$row['title']; 
-	          $postID=$row['postID']; 
-	          $description=$row['description']; 
-	  //-display the result of the array 
-	  echo "<ul>\n"; 
-	  echo "<li>" . "<a  href=\"search.php?id=$postID\">" ."<br><br><u>" .$title . "</u><br><br><u> " . $description ."</u><br>".  "</a></li>\n"; 
-	  echo "</ul>"; 
-	  } 
-	  } 
-	  else{ 
-	  echo  "<p>Your search gave back like, absolutely no results like.</p>"; 
-	  } 
-	  } 
-	  } 
-	?> 
+  <?php
+
+if(isset($_POST['submit'])){
+if(isset($_GET['go'])){
+if(preg_match("/[A-Z | a-z]+/", $_POST['name'])){
+$name=$_POST['name'];
+
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+
+//-query the database table
+$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $name . "%' OR lname LIKE '%" . $name ."%'";
+
+//-run the query against the mysql query function
+$result=mysql_query($sql);
+
+//-count results
+
+$numrows=mysql_num_rows($result);
+
+echo "<p>" .$numrows . " results found for " . stripslashes($name) . "</p>"; 
+
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+
+	$fname =$row['fname'];
+	$lname=$row['lname'];
+	$id=$row['id'];
+		
+//-display the result of the array
+
+echo "<ul>\n"; 
+echo "<li>" . "<a href=\"search.php?id=".$id."\">"  .$fname . " " . $lname . "</a></li>\n";
+echo "</ul>";
+}
+}
+else{
+echo "<p>Please enter a search query</p>";
+}
+}
+}
+
+if(isset($_GET['by'])){
+$letter=$_GET['by'];
+
+//connect to the database
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+
+//-query the database table
+$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $letter . "%' OR lname LIKE '%" . $letter ."%'";
+
+
+//-run the query against the mysql query function
+$result=mysql_query($sql); 
+
+//-count results
+$numrows=mysql_num_rows($result);
+
+echo "<p>" .$numrows . " results found for " . $letter . "</p>"; 
+
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+
+$fname =$row['fname'];
+	$lname=$row['lname'];
+	$id=$row['id'];
+	
+//-display the result of the array
+
+echo "<ul>\n"; 
+echo "<li>" . "<a href=\"search.php?id=$id\">"  .$fname . " " . $lname . "</a></li>\n";
+echo "</ul>";
+}
+}
+
+if(isset($_GET['id'])){
+$contactid=$_GET['id'];
+
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+
+//-query the database table
+$sql="SELECT * FROM users WHERE id=" . $id;
+
+
+//-run the query against the mysql query function
+$result=mysql_query($sql); 
+
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+
+  $fname =$row['fname'];
+	$lname=$row['lname'];
+	$email=$row['email'];
+
+//-display the result of the array
+
+echo "<ul>\n"; 
+echo "<li>" . $fname . " " . $lname . "</li>\n";
+echo "<li>" . "<a href=mailto:" . $email . ">" . $email . "</a></li>\n";
+echo "</ul>";
+}
+}
+
+?>
        
          
       </div>
