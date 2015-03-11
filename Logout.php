@@ -68,7 +68,7 @@ function validateCtrl($scope) {
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-          <form class="navbar-form" action="search" method="post" role="search">
+          <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -106,21 +106,17 @@ function validateCtrl($scope) {
       <div class="jumbotron">
         <h1>Leaving so soon?</h1>      
          <br>
-        <form role="form" action = "member.php" ng-app="" ng-controller="validateCtrl" 
-name="myForm" novalidate>
+        <form role="form" action = "User.php" name="myForm" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
-      <input type="email" class="form-control" id="email" ng-model="email" required name="email"><small><span style="color:orange" ng-show="myForm.email.$dirty && myForm.email.$invalid"><span ng-show="myForm.email.$error.required">Email is required.</span>
-<span ng-show="myForm.email.$error.email">Invalid email address.</span>
-</span></small>
+      <input type="email" class="form-control" id="email" required name="email">
     </div><form role="form">
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-myForm.email.$dirty && myForm.email.$invalid" id = "clickme" value="Submit!"/>
+        <input type = "button" class="btn btn-success" id = "clickme" value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
