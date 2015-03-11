@@ -123,15 +123,18 @@ echo "<p>" .$numrows . " results found for " . stripslashes($srchterm) . "</p>";
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
 
-	$fname =$row['fname'];
-	$lname=$row['lname'];
+$title =$row['title'];
+	$description=$row['description'];
 	$id=$row['postID'];
 		
 //-display the result of the array
 
-echo "<ul>\n"; 
-echo "<li>" . "<a href=\"search.php?id=".$id."\">"  .$fname . " " . $lname . "</a></li>\n";
-echo "</ul>";
+echo "<div class="container">";
+echo "<div class="jumbotron">\n";
+echo "<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>";
+echo "<h5><i>" .$description. "</i></h5>";
+echo "</div>";
+echo "</div>";
 }
 }
 else{
@@ -165,8 +168,8 @@ echo "<p>" .$numrows . " results found for " . $letter . "</p>";
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
 
-$fname =$row['fname'];
-	$lname=$row['lname'];
+$title =$row['title'];
+	$description=$row['description'];
 	$id=$row['postID'];
 	
 //-display the result of the array
