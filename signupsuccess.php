@@ -28,7 +28,7 @@ if(! $retval )
 }
 }
 else{
-	header('Location: Login.php');
+echo "<script> window.location.replace('login.php') </script>" 
 }
 
 mysql_close($conn);
