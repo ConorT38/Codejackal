@@ -100,10 +100,6 @@
 	  if(isset($_GET['go'])){ 
 	  if(preg_match("/^[  a-zA-Z]+/", $_POST['srchterm'])){ 
 	  $name=$_POST['srchterm']; 
-	  //connect  to the database 
-	  $db=mysql_connect  ("servername", "username",  "password") or die ('I cannot connect to the database  because: ' . mysql_error()); 
-	  //-select  the database to use 
-	  $mydb=mysql_select_db("yourDatabase"); 
 	  //-query  the database table 
 	  $sql="SELECT  postID, TITLE, DESCR FROM ENTRIES WHERE TITLE LIKE '%" . $name .  "%' OR DESCR LIKE '%" . $name ."%'"; 
 	  //-run  the query against the mysql query function 
