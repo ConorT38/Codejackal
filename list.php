@@ -6,7 +6,7 @@ $password = "Waltherp99";
 $dbname = "codejackal_database";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysql_connect($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -119,7 +119,7 @@ if ($result->num_rows > 0) {
  echo "<div class="jumbotron">"
     echo "<center><h2>Tutorial</h2></center><br><br>";
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->mysql_fetch_assoc()) {
         echo "<h3>Title:</h3> <a href="blog?id=".$row["postID"]."">"".$row["title"].""</b><br><h3>Decsription: </h3>".$row["description"]."</td></tr>";
     }
     echo "</div>";
