@@ -99,8 +99,8 @@
 
 if(isset($_POST['submit'])){
 if(isset($_GET['go'])){
-if(preg_match("/[A-Z | a-z]+/", $_POST['name'])){
-$name=$_POST['name'];
+if(preg_match("/[A-Z | a-z]+/", $_POST['srchterm'])){
+$srchterm=$_POST['srchterm'];
 
 //connect to the database
 $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
@@ -109,7 +109,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $name . "%' OR lname LIKE '%" . $name ."%'";
+$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $srchterm . "%' OR lname LIKE '%" . $srchterm ."%'";
 
 //-run the query against the mysql query function
 $result=mysql_query($sql);
@@ -118,7 +118,7 @@ $result=mysql_query($sql);
 
 $numrows=mysql_num_rows($result);
 
-echo "<p>" .$numrows . " results found for " . stripslashes($name) . "</p>"; 
+echo "<p>" .$numrows . " results found for " . stripslashes($srchterm) . "</p>"; 
 
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
