@@ -18,7 +18,7 @@
 		// Define $email and $pass
 		$email=$_POST['email'];
 		$pass=$_POST['pass'];
-		+
+		
 
 		// Establishing Connection with Server by passing server_name, user_id and password as a parameter
 		$dbhost = 'localhost';
