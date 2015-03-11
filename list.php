@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <?php
-$servername = "localhost";
-$username = "codejackal_admin";
-$password = "Waltherp99";
-$dbname = "codejackal_database";
-
-// Create connection
-$conn = new mysql_connect($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+$dbhost = 'localhost';
+$dbuser = 'codejackal_admin';
+$dbpass = 'Waltherp99';
+$dbname ="codejackal_database";
+$conn = mysql_connect($dbhost, $dbuser, $dbpass, $dbname);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
 ?>
 <html>
   <head>
