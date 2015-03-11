@@ -77,7 +77,7 @@ if (isset($_REQUEST['submitted'])) {
 }
 }
 }
-header('Location: signupsuccess.php');
+echo "<script> window.location.replace('signupsuccess.php') </script>" 
 ?>
 <!DOCTYPE html>
 <html>
