@@ -14,7 +14,7 @@ $user_check=$_SESSION['login_user'];
 
 if(!isset($_SESSION['email'])){
 mysql_close($connection); // Closing Connection
-header('Location: Logout'); // Redirecting To Home Page
+echo "<script> window.location.replace('login.php') </script>"  // Redirecting To Home Page
 }
 
 ?>
