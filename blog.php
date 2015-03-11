@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
+$id = intval($_REQUEST['id']);  
+
+$sql = "SELECT * from blog where postID = '$id';";  
+
+$result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error()); 
+
+?>
 <html>
   <head>
     <title>CodeJackal | Tables</title>
@@ -38,29 +48,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-             <li><a href="list.php">Archive</a></li>
-            <li><a href="random.php">Random</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li class="active"><a href="index">Home</a></li>
+             <li><a href="list">Archive</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
 	
-          <form class="navbar-form" role="search">
+          <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-
-
-term">
+			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-
-
-search"></i></button>
+				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
 		</div>
 		</form>
@@ -96,19 +101,19 @@ search"></i></button>
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1><?php echo $row['title']; ?></h1>      
+        <h1><?php echo $result['title']; ?></h1>      
          <br>
 
     </div>
 </div>
  <div class="container">
       <div class="jumbotron">
-        <p><i><?php echo $row['description'];?></i></p>     
+        <p><i><?php echo $result['description'];?></i></p>     
          <br>
          <br>
          <br>
          <br>
-        <p><?php echo $row['content'];;?>></p>     
+        <p><?php echo $result['content'];?></p>     
          <br>
 
     </div>
