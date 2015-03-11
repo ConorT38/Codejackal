@@ -109,7 +109,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $srchterm . "%' OR lname LIKE '%" . $srchterm ."%'";
+$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $srchterm . "%' OR description LIKE '%" . $srchterm ."%'";
 
 //-run the query against the mysql query function
 $result=mysql_query($sql);
@@ -125,7 +125,7 @@ while($row=mysql_fetch_array($result)){
 
 	$fname =$row['fname'];
 	$lname=$row['lname'];
-	$id=$row['id'];
+	$id=$row['postID'];
 		
 //-display the result of the array
 
@@ -151,7 +151,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT id, fname, lname FROM users WHERE fname LIKE '%" . $letter . "%' OR lname LIKE '%" . $letter ."%'";
+$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $letter . "%' OR description LIKE '%" . $letter ."%'";
 
 
 //-run the query against the mysql query function
@@ -167,13 +167,16 @@ while($row=mysql_fetch_array($result)){
 
 $fname =$row['fname'];
 	$lname=$row['lname'];
-	$id=$row['id'];
+	$id=$row['postID'];
 	
 //-display the result of the array
 
-echo "<ul>\n"; 
-echo "<li>" . "<a href=\"search.php?id=$id\">"  .$fname . " " . $lname . "</a></li>\n";
-echo "</ul>";
+echo "<div class="container">";
+echo "<div class="jumbotron">\n";
+echo "<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>";
+echo "<h5><i>" .$description. "</i></h5>";
+echo "</div>";
+echo "</div>";
 }
 }
 
@@ -187,7 +190,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT * FROM users WHERE id=" . $id;
+$sql="SELECT * FROM blog WHERE postID=" . $id;
 
 
 //-run the query against the mysql query function
@@ -196,16 +199,19 @@ $result=mysql_query($sql);
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
 
-  $fname =$row['fname'];
-	$lname=$row['lname'];
-	$email=$row['email'];
+  $fname =$row['title'];
+	$lname=$row['description'];
+	$content=$row['content'];
 
 //-display the result of the array
 
-echo "<ul>\n"; 
-echo "<li>" . $fname . " " . $lname . "</li>\n";
-echo "<li>" . "<a href=mailto:" . $email . ">" . $email . "</a></li>\n";
-echo "</ul>";
+echo "<div class="container">";
+echo "<div class="jumbotron">\n";
+echo "<h3>"  .$title ."</h3><br><hr>";
+echo "<h5><i>" .$description. "</i></h5><br>";
+echo "<p>" .$content. "</p>";
+echo "</div>";
+echo "</div>";
 }
 }
 
