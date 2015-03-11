@@ -37,9 +37,51 @@ else
 }
 #This is how you comment when you're in the parameters of php
 #updated the database details
-
+        <?php 
+if (isset($_REQUEST['submitted'])) {
+// Initialize error array.
+  $errors = array();
+  // Check for a proper First name
+  if (!empty($_REQUEST['fname'])) {
+  $fname = $_REQUEST['fname'];
+  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
+  if (preg_match($pattern,$fname)){ $fname = $_REQUEST['fname'];}
+  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
+  } else {$errors[] = 'You forgot to enter your First Name.';}
+  
+  // Check for a proper Last name
+  if (!empty($_REQUEST['lname'])) {
+  $lname = $_REQUEST['lname'];
+  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
+  if (preg_match($pattern,$lname)){ $fname = $_REQUEST['lname'];}
+  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
+  } else {$errors[] = 'You forgot to enter your First Name.';}
+  
+  //Check for a valid Email
+  if (!empty($_REQUEST['email'])) {
+  $email = $_REQUEST['email'];
+  $pattern = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
+  if (preg_match($pattern,$email)){ $email = $_REQUEST['email'];}
+  else{ $errors[] = 'Your Email can only be numbers and letters.';}
+  } else {$errors[] = 'You forgot to enter your Email.';}
+  
+  // Check for a proper password
+  if (!empty($_REQUEST['pass'])) {
+  $pass = $_REQUEST['pass'];
+  $pattern = "/^[a-zA-Z0-9\_]{6,20}/";// This is a regular expression that checks if the password is valid characters
+  if (preg_match($pattern,$pass)){ $pass = $_REQUEST['pass'];}
+  else{ $errors[] = 'Your password can only contain _, 1-9, A-Z or a-z, and  6-20 characters long long.';}
+  } else {$errors[] = 'You forgot to enter your Last Name.';}
 
 mysql_select_db('codejackal_database');
+$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
+$rows = mysql_num_rows($query);
+if ($rows == 1) {
+	$errors[] = 'That user already exists, try another email';
+}else
+{
+	
+
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email) ".
        "VALUES('$fname','$lname','$pass','$email')";
@@ -53,6 +95,7 @@ if(! $retval )
 
 
 mysql_close($conn);
+}
 }
 }
 }
@@ -153,6 +196,19 @@ header('Location: signupsuccess.php');
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
+         <?php 
+  //Print Errors
+  if (isset($_REQUEST['submitted'])) {
+  // Print any error messages. 
+  if (!empty($errors)) { 
+  echo '<hr /><h3>The following occurred:</h3><ul>'; 
+  // Print each error. 
+  foreach ($errors as $msg) { echo '<li>'. $msg . '</li>';}
+  echo '</ul><h3>Your mail could not be sent due to input errors.</h3><hr />';}
+ 
+  }
+//End of errors array
+  ?>
         <h1>Enter your credentials in the corresponding spaces below:</h1>      
          <br>
 <!--Updated DB Details -->
