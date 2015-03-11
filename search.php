@@ -129,9 +129,9 @@ $title =$row['title'];
 		
 //-display the result of the array
 
-echo "<div class="container">";
-echo "<div class="jumbotron">\n";
-echo "<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>";
+echo '<div class="container">';
+echo '<div class="jumbotron">\n';
+echo '<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>';
 echo "<h5><i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
@@ -174,8 +174,8 @@ $title =$row['title'];
 	
 //-display the result of the array
 
-echo "<div class="container">";
-echo "<div class="jumbotron">\n";
+echo '<div class="container">';
+echo '<div class="jumbotron">\n';
 echo "<h3>" . "<a href=\"search.php?id=$id\">"  .$title ."</a></h3><br>";
 echo "<h5><i>" .$description. "</i></h5>";
 echo "</div>";
@@ -208,8 +208,8 @@ while($row=mysql_fetch_array($result)){
 
 //-display the result of the array
 
-echo "<div class="container">";
-echo "<div class="jumbotron">\n";
+echo '<div class="container">';
+echo '<div class="jumbotron">\n';
 echo "<h3>"  .$title ."</h3><br><hr>";
 echo "<h5><i>" .$description. "</i></h5><br>";
 echo "<p>" .$content. "</p>";
@@ -217,6 +217,7 @@ echo "</div>";
 echo "</div>";
 }
 }
+
 
 ?>
        
