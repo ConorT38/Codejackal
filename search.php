@@ -131,8 +131,8 @@ $title =$row['title'];
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><a href=\"search.php?id=$id\">'  .$title .'</a></h3><br>';
-echo "<h5><i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
 }
@@ -176,8 +176,8 @@ $title =$row['title'];
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><a href=\"search.php?id=$id\">'  .$title .'</a></h3><br>';
-echo "<h5><i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo "<h5><u>Description: </u><i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
 }
@@ -210,8 +210,8 @@ while($row=mysql_fetch_array($result)){
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">\n';
-echo "<h3>"  .$title ."</h3><br><hr>";
-echo "<h5><i>" .$description. "</i></h5><br>";
+echo "<h3><u>Title:</u> "  .$title ."</h3><br><hr>";
+echo "<h5><u>Description:</u> <i>" .$description. "</i></h5><br>";
 echo "<p>" .$content. "</p>";
 echo "</div>";
 echo "</div>";
