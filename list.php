@@ -110,24 +110,25 @@ if(! $conn )
     </div>
     <div class="container">
     <?php
-    $sql = "SELECT * FROM blog";
-$result = $conn->query($sql);
+ $sql = "SELECT *FROM blog";
+$result = mysql_query($sql);
+while($row=mysql_fetch_array($result)){
 
-if ($result->num_rows > 0) {
- echo "<div class="jumbotron">"
-    echo "<center><h2>Tutorial</h2></center><br><br>";
-    // output data of each row
-    while($row = $result->mysql_fetch_assoc()) {
-        echo "<h3>Title:</h3> <a href="blog?id=".$row["postID"]."">"".$row["title"].""</b><br><h3>Decsription: </h3>".$row["description"]."</td></tr>";
-    }
-    echo "</div>";
-} else {
-    echo "0 results";
+$title =$row['title'];
+	$description=$row['description'];
+	$id=$row['postID'];
+		
+//-display the result of the array
+echo '</div></div>';
+echo '<div class="container">';
+echo '<div class="jumbotron">';
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
+echo "</div>";
+echo "</div>";
 }
-$conn->close();
 ?>
     
-    ?>
     
     </div>
     
