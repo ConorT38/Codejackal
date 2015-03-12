@@ -106,14 +106,14 @@ $sql = "SELECT fname, lname, points FROM users LIMIT 0 , 10";
 $result = mysql_query($sql);
 
 if (mysql_num_rows($result) > 0) {
-	echo '<table class="table table-striped"><thead>
-      <tr>First name</th><th>Last name</th><th>Score</th></tr></thead>';
+	echo '<table class="table table-striped"><thead><tr><th>First name</th><th>Last name</th><th>Score</th></tr></thead>';
     // output data of each row
     while($row = mysql_fetch_assoc($result)) {
-       echo '<tbody><tr><td>' . $row["fname"]. ' ' . $row["lname"]. '</td><td>' . $row["points"]. '</td><td></tr></tbody>';
+       echo '<tbody><tr><td>' . $row["fname"]. '</td><td> ' . $row["lname"]. '</td><td>' . $row["points"]. '</td></tr></tbody>';
+     
     }
 
-     echo "</table>";
+   echo "</table>";
 } else {
      echo "0 results";
 }
