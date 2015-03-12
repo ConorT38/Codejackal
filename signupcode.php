@@ -1,5 +1,16 @@
  <?php
-                $dbhost = 'localhost';
+ if(isset($_SESSION['user']))
+{
+    header("Location: User.php");
+    exit;
+}
+else if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass']))
+{
+    header("Location: Signup.php");
+    exit;
+}
+else{
+ $dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
 $dbpass = 'Waltherp99';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -34,5 +45,6 @@ $sql = "INSERT INTO users ".
 mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
 header('Location: Login.php');
+}
 }
 ?>
