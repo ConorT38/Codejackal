@@ -97,7 +97,43 @@
           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   What's this all about?
 </button><br>
-      <p><a  href="?by=A">A</a> | <a  href="?by=B">B</a> | <a  href="?by=C">C</a> | <a  href="?by=D">D</a> | <a  href="?by=E">E</a> | <a  href="?by=F">F</a> |  <a  href="?by=G">G | <a  href="?by=H">H</a> |<a  href="?by=I">I</a> |<a  href="?by=J">J</a> |<a  href="?by=K">K</a> |<a  href="?by=L">L</a> |<a  href="?by=M">M</a> |<a  href="?by=N">N</a> |<a  href="?by=O">O</a> |<a  href="?by=P">P</a> |<a  href="?by=Q">Q</a> |<a  href="?by=R">R</a> |<a  href="?by=S">S</a> |<a  href="?by=T">T</a> |<a  href="?by=U">U</a> |<a  href="?by=V">V</a> |<a  href="?by=W">W</a> |<a  href="?by=X">X</a> |<a  href="?by=Y">Y</a> |<a  href="?by=Z">Z</a>|</a></p>
+<nav>
+  <ul class="pagination">
+    <li>
+      </a>
+    </li>
+    <li><a href="?by=A">A</a></li>
+    <li><a href="?by=B">B</a></li>
+    <li><a href="?by=C">C</a></li>
+    <li><a href="?by=D">D</a></li>
+    <li><a href="?by=E">E</a></li>
+    <li><a href="?by=F">F</a></li>
+    <li><a href="?by=G">G</a></li>
+    <li><a href="?by=H">H</a></li>
+    <li><a href="?by=I">I</a></li>
+    <li><a href="?by=J">J</a></li>
+    <li><a href="?by=K">K</a></li>
+    <li><a href="?by=L">L</a></li>
+    <li><a href="?by=M">M</a></li>
+    <li><a href="?by=N">N</a></li>
+    <li><a href="?by=O">O</a></li>
+    <li><a href="?by=P">P</a></li>
+    <li><a href="?by=Q">Q</a></li>
+    <li><a href="?by=R">R</a></li>
+    <li><a href="?by=S">S</a></li>
+    <li><a href="?by=T">T</a></li>
+    <li><a href="?by=U">U</a></li>
+    <li><a href="?by=V">V</a></li>
+    <li><a href="?by=W">W</a></li>
+    <li><a href="?by=X">X</a></li>
+    <li><a href="?by=Y">Y</a></li>
+    <li><a href="?by=Z">Z</a></li>
+    <li>
+      </a>
+    </li>
+  </ul>
+</nav>
+  
       </div>
     </div>
     <div class="container">
