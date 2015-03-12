@@ -1,15 +1,4 @@
  <?php
- if(isset($_SESSION['user']))
-{
-    header("Location: User.php");
-    exit;
-}
-else if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass']))
-{
-    header("Location: Signup.php");
-    exit;
-}
-else{
  $dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
 $dbpass = 'Waltherp99';
