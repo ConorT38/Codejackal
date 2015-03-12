@@ -101,12 +101,12 @@ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error())
          loop will be something like "for(int i=0; i<list.size(); i++){
                                           echo $_POST['score']}; etc..-->
     <?php
-$sql = "SELECT fname, lname, points FROM users LIMIT 0 , 10";
+$sql = "SELECT fname, lname, points FROM users ORDER BY points DESC LIMIT 0 , 10";
 
 $result = mysql_query($sql);
 
 if (mysql_num_rows($result) > 0) {
-	echo '<table class="table table-striped"><thead><tr><th>First name</th><th>Last name</th><th>Score</th></tr></thead>';
+	echo '<table class="table table-striped"><thead><tr class="info"><th>First name</th><th>Last name</th><th>Score</th></tr></thead>';
     // output data of each row
     while($row = mysql_fetch_assoc($result)) {
        echo '<tbody><tr><td>' . $row["fname"]. '</td><td> ' . $row["lname"]. '</td><td>' . $row["points"]. '</td></tr></tbody>';
