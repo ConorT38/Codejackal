@@ -1,10 +1,5 @@
  <?php
-           while(isset($_POST['clickme'])){
-           if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass'])){
-           	header("Location: Signup.php");
-           }
-           else{
-           $dbhost = 'localhost';
+                $dbhost = 'localhost';
 $dbuser = 'codejackal_admin';
 $dbpass = 'Waltherp99';
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -38,9 +33,6 @@ $sql = "INSERT INTO users ".
        "VALUES('$fname','$lname','$email','$pass')";
 mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
-if(! $retval )
-{
-  die('Could not enter data: ' . mysql_error());
-}
 header('Location: Login.php');
+}
 ?>
