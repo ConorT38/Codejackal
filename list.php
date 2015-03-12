@@ -96,12 +96,13 @@
 
           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   What's this all about?
-</button>
-      
+</button><br>
+      <p><a  href="?by=A">A</a> | <a  href="?by=B">B</a> | <a  href="?by=C">C</a> | <a  href="?by=D">D</a> | <a  href="?by=E">E</a> | <a  href="?by=F">F</a> |  <a  href="?by=G">G | <a  href="?by=H">H</a> |<a  href="?by=I">I</a> |<a  href="?by=J">J</a> |<a  href="?by=K">K</a> |<a  href="?by=L">L</a> |<a  href="?by=M">M</a> |<a  href="?by=N">N</a> |<a  href="?by=O">O</a> |<a  href="?by=P">P</a> |<a  href="?by=Q">Q</a> |<a  href="?by=R">R</a> |<a  href="?by=S">S</a> |<a  href="?by=T">T</a> |<a  href="?by=U">U</a> |<a  href="?by=V">V</a> |<a  href="?by=W">W</a> |<a  href="?by=X">X</a> |<a  href="?by=Y">Y</a> |<a  href="?by=Z">Z</a>|</a></p>
       </div>
     </div>
     <div class="container">
     <?php
+    if(!isset($_GET['by'])){
  $sql = "SELECT *FROM blog";
 $result = mysql_query($sql);
 while($row=mysql_fetch_array($result)){
@@ -118,6 +119,37 @@ echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>
 echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
+}
+}
+else if(isset($_GET['by'])){
+$letter=$_GET['by'];
+//connect to the database
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+//-query the database table
+$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $letter . "%' OR description LIKE '%" . $letter ."%'";
+//-run the query against the mysql query function
+$result=mysql_query($sql); 
+//-count results
+$numrows=mysql_num_rows($result);
+echo "<p>" .$numrows . " results found for " . $letter . "</p>"; 
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+$title =$row['title'];
+	$description=$row['description'];
+	$id=$row['postID'];
+	
+//-display the result of the array
+echo '</div></div>';
+echo '<div class="container">';
+echo '<div class="jumbotron">';
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo "<h5><u>Description: </u><i>" .$description. "</i></h5>";
+echo "</div>";
+echo "</div>";
+}
 }
 ?>
     
