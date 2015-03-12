@@ -58,13 +58,14 @@ $('#clickme').on('click', function() {
           <ul class="nav navbar-nav">
             <li class="active"><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
+            <li><a href="random">Random</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li>
-          <form class="navbar-form" action="search.php?go" method="post" role="search">
+          <form class="navbar-form" action="search" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -102,15 +103,53 @@ $('#clickme').on('click', function() {
   <div class="alert alert-info" role="alert">Be sure to sign up and keep up to date on users uploading material!
 </div>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Welcome to CodeJackal!</h1>      
-        <p>The <i>tastiest</i> coding tutorial website out there!</p>  
-        <br>
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  What's this all about?
-</button>    
-      </div>
+   <div class="jumbotron">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Slide Content -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="img_1.jpg" alt="image1">
     </div>
+
+    <div class="item">
+      <img src="img_2.jpg" alt="Image2">
+    </div>
+
+    <div class="item">
+      <img src="img_3.jpg" alt="Image3">
+    </div>
+
+    <div class="item">
+      <img src="img_4.jpg" alt="Image4">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+	
+
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+		What's this all about?
+	</button>    
+    </div>
+ </div>
 
 <!-- these are all of the columns, we can debate later whether or not these will stay -->
 
@@ -139,7 +178,6 @@ $('#clickme').on('click', function() {
      <div class="col-md-3">
          <h2 >Facebook Feed</h2>
            <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com
-
 %2Fcodejackal&width=300&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=605" scrolling="yes" 
 
 frameborder="0" style="border:none; overflow:hidden; width:300px; height:600px; background: white; float:left; " 
