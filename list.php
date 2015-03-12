@@ -123,7 +123,6 @@ echo "</div>";
 ?>
     
     
-    </div>
     
       <div class="clearfix visible-lg"></div>
 	  <center>
