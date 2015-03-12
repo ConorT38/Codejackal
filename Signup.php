@@ -1,84 +1,7 @@
 <?php
 setcookie(time() + (86400 * 30), "/");
 ?>
-           <?php
-           while(isset($_POST['clickme'])){
-           if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass'])&&){
-           	header("Location: Signup.php");
-           }
-           else{
-           $dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
-           
-if(isset($_POST['clickme']))
-
-{
-
-
-if(! get_magic_quotes_gpc() )
-{
-   $fname = addslashes ($_POST['fname']);
-   $lname = addslashes ($_POST['lname']);
-   $email = addslashes($_POST['email']);
-   $pass = addslashes($_POST['pass']);
-}
-else
-{
-   $fname = $_POST['fname'];
-   $lname = $_POST['lname'];
-   $email = $_POST['email'];
-   $pass= $_POST['pass'];
-}
-#This is how you comment when you're in the parameters of php
-#updated the database details
-        <?php 
-if (isset($_REQUEST['submitted'])) {
-// Initialize error array.
-  $errors = array();
-  // Check for a proper First name
-  if (!empty($_REQUEST['fname'])) {
-  $fname = $_REQUEST['fname'];
-  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
-  if (preg_match($pattern,$fname)){ $fname = $_REQUEST['fname'];}
-  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
-  } else {$errors[] = 'You forgot to enter your First Name.';}
-  
-  // Check for a proper Last name
-  if (!empty($_REQUEST['lname'])) {
-  $lname = $_REQUEST['lname'];
-  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
-  if (preg_match($pattern,$lname)){ $fname = $_REQUEST['lname'];}
-  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
-  } else {$errors[] = 'You forgot to enter your First Name.';}
-  
-  //Check for a valid Email
-  if (!empty($_REQUEST['email'])) {
-  $email = $_REQUEST['email'];
-  $pattern = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
-  if (preg_match($pattern,$email)){ $email = $_REQUEST['email'];}
-  else{ $errors[] = 'Your Email can only be numbers and letters.';}
-  } else {$errors[] = 'You forgot to enter your Email.';}
-  
-  // Check for a proper password
-  if (!empty($_REQUEST['pass'])) {
-  $pass = $_REQUEST['pass'];
-  $pattern = "/^[a-zA-Z0-9\_]{6,20}/";// This is a regular expression that checks if the password is valid characters
-  if (preg_match($pattern,$pass)){ $pass = $_REQUEST['pass'];}
-  else{ $errors[] = 'Your password can only contain _, 1-9, A-Z or a-z, and  6-20 characters long long.';}
-  } else {$errors[] = 'You forgot to enter your Last Name.';}
-
-
-}
-}
-}
-echo "<script> window.location.replace('signupsuccess.php') </script>";
-?>
+         <!-- The fucking validation home boy, to ensure no hackery or tomfoolery -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -174,24 +97,50 @@ echo "<script> window.location.replace('signupsuccess.php') </script>";
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-         <?php 
-  //Print Errors
-  if (isset($_REQUEST['submitted'])) {
-  // Print any error messages. 
-  if (!empty($errors)) { 
-  echo '<hr /><h3>The following occurred:</h3><ul>'; 
-  // Print each error. 
-  foreach ($errors as $msg) { echo '<li>'. $msg . '</li>';}
-  echo '</ul><h3>Your mail could not be sent due to input errors.</h3><hr />';}
- 
-  }
-//End of errors array
-  ?>
         <h1>Enter your credentials in the corresponding spaces below:</h1>      
          <br>
-<!--Updated DB Details -->
+ <?php
+if (isset($_REQUEST['submitted'])) {
+// Initialize error array.
+  $errors = array();
+  // Check for a proper First name
+  if (!empty($_REQUEST['fname'])) {
+  $fname = $_REQUEST['fname'];
+  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
+  if (preg_match($pattern,$fname)){ $fname = $_REQUEST['fname'];}
+  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
+  } else {$errors[] = 'You forgot to enter your First Name.';}
+  
+  // Check for a proper Last name
+  if (!empty($_REQUEST['lname'])) {
+  $lname = $_REQUEST['lname'];
+  $pattern = "/^[a-zA-Z\_]{2,20}/";// This is a regular expression that checks if the name is valid characters
+  if (preg_match($pattern,$lname)){ $fname = $_REQUEST['lname'];}
+  else{ $errors[] = 'Your Name can only contain A-Z or a-z 2-20 long.';}
+  } else {$errors[] = 'You forgot to enter your First Name.';}
+  
+  //Check for a valid Email
+  if (!empty($_REQUEST['email'])) {
+  $email = $_REQUEST['email'];
+  $pattern = "/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/";
+  if (preg_match($pattern,$email)){ $email = $_REQUEST['email'];}
+  else{ $errors[] = 'Your Email can only be numbers and letters.';}
+  } else {$errors[] = 'You forgot to enter your Email.';}
+  
+  // Check for a proper password
+  if (!empty($_REQUEST['pass'])) {
+  $pass = $_REQUEST['pass'];
+  $pattern = "/^[a-zA-Z0-9\_]{6,20}/";// This is a regular expression that checks if the password is valid characters
+  if (preg_match($pattern,$pass)){ $pass = $_REQUEST['pass'];}
+  else{ $errors[] = 'Your password can only contain _, 1-9, A-Z or a-z, and  6-20 characters long long.';}
+  } else {$errors[] = 'You forgot to enter your Last Name.';}
 
-         <form role="form" method="post" action="signupsuccess.php">
+
+}
+
+?>
+
+         <form role="form" method="post" action="signupcode.php">
 
       <label for="usr">First Name:</label>
       <input type="text" class="form-control"    id="fname" name="fname">
@@ -218,6 +167,11 @@ echo "<script> window.location.replace('signupsuccess.php') </script>";
 
 </div>
       </div>
+      <?php if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass']))
+{header("Location: Signup.php");
+exit;
+}
+?>
   </form>
   <script src = "myUsers.js"></script>
 
