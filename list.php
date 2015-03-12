@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<?php
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$dbname ="codejackal_database";
-$conn = mysql_connect($dbhost, $dbuser, $dbpass, $dbname);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
-?>
+ <?php
+ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
+ ?>
 <html>
   <head>
     <title>CodeJackal | Archive</title>
