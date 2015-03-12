@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <?php
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
-
+mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
 ?>
 <html>
   <head>
@@ -108,16 +101,16 @@ if(! $conn )
          loop will be something like "for(int i=0; i<list.size(); i++){
                                           echo $_POST['score']}; etc..-->
     <?php
-mysqli_select_db($conn, 'codejackal_database');
-$sql = "SELECT fname, lname, points FROM users";
+$sql = "SELECT fname, lname, points FROM users LIMIT 0 , 10";
 
-$result = mysqli_query($conn, $sql);
+$result = mysql_query($sql);
 
-if (mysqli_num_rows($result) > 0) {
-	echo "<table><tr><th>First name</th><th>Last name</th><th>Score</th></tr>";
+if (mysql_num_rows($result) > 0) {
+	echo '<table class="table table-striped"><thead>
+      <tr>First name</th><th>Last name</th><th>Score</th></tr></thead>';
     // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-       echo "<tr><td>" . $row["fname"]. " " . $row["lname"]. "</td><td>" . $row["points"]. "</td><td></tr>";
+    while($row = mysql_fetch_assoc($result)) {
+       echo '<tbody><tr><td>' . $row["fname"]. ' ' . $row["lname"]. '</td><td>' . $row["points"]. '</td><td></tr></tbody>';
     }
 
      echo "</table>";
@@ -125,7 +118,7 @@ if (mysqli_num_rows($result) > 0) {
      echo "0 results";
 }
 
-mysqli_close($conn);
+mysql_close($conn);
 ?>  
 
     </div>
