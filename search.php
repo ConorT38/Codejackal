@@ -109,7 +109,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $srchterm . "%' OR description LIKE '%" . $srchterm ."%'";
+$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $srchterm . "%'";
 
 //-run the query against the mysql query function
 $result=mysql_query($sql);
@@ -154,7 +154,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $letter . "%' OR description LIKE '%" . $letter ."%'";
+$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $letter . "%'";
 
 
 //-run the query against the mysql query function
