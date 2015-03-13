@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<?php
-include('logincode.php'); // Includes Login Script
 
-if(isset($_SESSION['email'])){
-header("location: User.php");
-}
-?>
+<!DOCTYPE html>
 <html>
   <head>
     <title>CodeJackal | Login</title>
@@ -101,14 +95,14 @@ header("location: User.php");
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form role="form" action = ""  method="post" >
+         <form action="User.php"  method="post" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
       <input type="email" class="form-control" id="email"  name="email">
     </div><form role="form">
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
+      <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in your password.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
         <input type = "submit" name ="submit" class="btn btn-success"  value="Submit!"/>
