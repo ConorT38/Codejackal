@@ -1,8 +1,4 @@
-
-<!DOCTYPE html>
 <?php
-if(empty($errors[])){
-
 $host = "localhost";
 $user = "codejackal_admin";
 $password = "Waltherp99";
@@ -29,22 +25,19 @@ if ($rows == 1) {
 }else
 {
 	
-
 $sql = "INSERT INTO users ".
        "(fname,lname, pass, email) ".
        "VALUES('$fname','$lname','$pass','$email')";
-
 $retval = mysql_query( $sql, $conn );
-
 if(! $retval )
 {
   die('Could not enter data: ' . mysql_error());
 }
 }
-
 mysql_close($conn);
-}
+
 ?>
+<!DOCTYPE html>
 <html>
   <head>
     <title>CodeJackal | Success!</title>
