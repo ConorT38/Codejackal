@@ -64,7 +64,7 @@ $('#clickme').on('click', function() {
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li>
-          <form class="navbar-form" action="search" method="post" role="search">
+         <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -109,24 +109,41 @@ $('#clickme').on('click', function() {
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
   </ol>
 
   <!-- Slide Content -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <center><img src="img1.png" alt="image1"></center>
+       <div class="carousel-caption">
+    <h2>Welcome to CodeJackal!</h2>
+    <p>Home of tutorials</p>
+  </div>
     </div>
 
     <div class="item">
       <center><img src="img2.png" alt="Image2"></center>
+       <div class="carousel-caption">
+    <h4>...</h4>
+    <p>...</p>
+  </div>
     </div>
 
     <div class="item">
       <center><img src="img3.jpg" alt="Image3"></center>
+       <div class="carousel-caption">
+    <h4>...</h4>
+    <p>...</p>
+  </div>
     </div>
 
     <div class="item">
       <center><img src="img4.jpg" alt="Image4"></center>
+       <div class="carousel-caption">
+    <h4>...</h4>
+    <p>...</p>
+  </div>
     </div>
   </div>
 
@@ -139,15 +156,16 @@ $('#clickme').on('click', function() {
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-</div>
-	
 
+
+	
+ </div>
 	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
 		What's this?
 	</button>    
+	<br>
     </div>
- </div>
+
 
 <!-- these are all of the columns, we can debate later whether or not these will stay -->
 
@@ -155,7 +173,7 @@ $('#clickme').on('click', function() {
       <div class="row">
         <div class="col-md-3">
          <h2 >Welcome</h2>
-          <p>Welcome to codejackal where you can hfghxfhsfhsdfhsdfhdsfhdfhadfahadfhdfhdhhgffh </p>
+          <p>Welcome to codejackal where you can find all the tutorials you will need on computing, programming, web development and hardware. Simply search the topic you are looking for and we will have something here for you!</p>
           <p><a href="about">more...</a></p>
         </div>
         <div class="col-md-3"> 
