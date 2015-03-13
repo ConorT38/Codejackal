@@ -1,31 +1,10 @@
 <!DOCTYPE html>
 <?php
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+include('logincode.php'); // Includes Login Script
 
-// To protect MySQL injection for Security purpose
-$email = stripslashes($email);
-$pass = stripslashes($pass);
-$email = mysql_real_escape_string($email);
-$pass= mysql_real_escape_string($pass);
-
-// Selecting Database, make sure to change this to user if you mix it up
-$db = mysql_select_db("codejackal_database", $conn);
-
-// SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-	session_start();
-$_SESSION['email']=$email; // Initializing Session
-$row = $rows->mysql_fetch_assoc();
-header("Location: User");
-} else {
-  header("Location: Login");
+if(isset($_SESSION['email'])){
+header("location: User.php");
 }
-mysql_close($conn); // Closing Connection
 ?>
 <html>
   <head>
@@ -122,7 +101,7 @@ mysql_close($conn); // Closing Connection
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form role="form" action = "Login.php" name="myForm" method="post" >
+         <form role="form" action = ""  method="post" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
       <input type="email" class="form-control" id="email"  name="email">
