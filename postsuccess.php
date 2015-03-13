@@ -40,9 +40,6 @@ if(! $retval )
 mysql_close($conn);
 
 }
-
-else
-{
 ?>
 <!DOCTYPE html>
 <html>
