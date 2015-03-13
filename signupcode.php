@@ -1,12 +1,6 @@
  <?php
- $dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
+ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
            
 if(isset($_POST['clickme']))
 
@@ -31,7 +25,6 @@ else
 $sql = "INSERT INTO users ".
        "(fname,lname,email,pass,) ".
        "VALUES('$fname','$lname','$email','$pass')";
-mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
 header('Location: Login.php');
 }
