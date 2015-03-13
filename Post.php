@@ -1,74 +1,5 @@
 <!DOCTYPE html>
-<?php
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-
-// Selecting Database
-$db = mysql_select_db("codejackal_database", $conn);
-
-// Storing Session
-$user_check=$_SESSION['login_user'];
-
-if(!isset($_SESSION['email'])){
-mysql_close($connection); // Closing Connection
-echo "<script> window.location.replace('login.php') </script>"  // Redirecting To Home Page
-}
-
-?>
-
-<?php
-if(isset($_POST['submitted']))
-{
-$dbhost = 'localhost';
-$dbuser = 'codejackal_admin';
-$dbpass = 'Waltherp99';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
-
-if(! get_magic_quotes_gpc() )
-{
-   $title = addslashes ($_POST['title']);
-   $description = addslashes ($_POST['description']);
-   $content = addslashes ($_POST['content']);
-   $tags = addslashes ($_POST['tags']);
-}
-else
-{
-   $title = $_POST['title'];
-   $description = $_POST['description'];
-   $content = $_POST['content'];
-   $tags = $_POST['tags'];
-}
-$id = $_POST['id'];
-
-$sql = "INSERT INTO blog ".
-       "(title,description,content,tags,id) ".
-       "VALUES('$title','$description','$content','$tags','$id')";
-mysql_select_db('codejackal_database');
-$retval = mysql_query( $sql, $conn );
-
-if(! $retval )
-{
-  die('Could not enter data: ' . mysql_error());
-}
-
-mysql_close($conn);
-
-}
-
-else
-{
-?>
-
 <!--Session data, sorry if it's messy -->
-
-
 <html>
   <head>
     <title>CodeJackal |<?php echo $fname; ?></title>
@@ -157,7 +88,7 @@ else
       <h2>Post Your Blog Hommie!!!</h2>
         <p>Fill out the form below.</p>
           <div class ="form-group">
-          <form role ="form" action="<?php $_PHP_SELF ?>"method="post">
+          <form action="postsuccess.php" method="post">
           <label>Title: </label>
           <textarea name="title" id="title" type="text" class="form-control" rows="1" placeholder="- Enter Your Blog Title Here -"></textarea>
       <br /><br /></div>
@@ -213,8 +144,3 @@ $('#clickme').on('click', function() {
     
   </body>
 </html>
-
-
-<?php
-  }
-  ?>
