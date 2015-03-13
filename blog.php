@@ -103,16 +103,13 @@ $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error());
       <div class="jumbotron">
         <h1><?php echo $result['title']; ?></h1>      
          <br>
-
+       <small>Date:"<?php echo $result['reg_date']; ?>"</small>
+       <br>
+       <br><quote><i>"<?php echo $result['description'];?>"</i></quote>   
     </div>
 </div>
  <div class="container">
       <div class="jumbotron">
-        <p><i><?php echo $result['description'];?></i></p>     
-         <br>
-         <br>
-         <br>
-         <br>
         <p><?php echo $result['content'];?></p>     
          <br>
 
