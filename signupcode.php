@@ -33,8 +33,6 @@ $sql = "INSERT INTO users ".
        "VALUES('$fname','$lname','$email','$pass')";
 mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
-if($retval){
 header('Location: Login.php');
-}
 }
 ?>
