@@ -1,10 +1,7 @@
 <?php
-setcookie(time() + (86400 * 30), "/");
-?>
-  <?php
   include('signupcode.php');
   ?>
-  <!-- The fucking validation home boy, to ensure no hackery or tomfoolery -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -143,22 +140,22 @@ if (isset($_REQUEST['submitted'])) {
 
 ?>
 
-         <form role="form" method="post" action="">
+         <form role="form" method="post" action="signupsuccess.php">
 
-      <label for="usr">First Name:</label>
-      <input type="text" class="form-control"    id="fname" name="fname">
+      <label">First Name:</label>
+      <input type="text" class="form-control" id="fname" name="fname">
       <br>
       <br>
 
-      <label for="usr">Last Name:</label>
+      <label>Last Name:</label>
       <input type="text" class="form-control"  id="lname" name="lname">
 <br>
       <br>
-      <label for="usr">E-mail:</label>
+      <label>E-mail:</label>
       <input type="text" class="form-control"  id="email" name="email">
 <br>
       <br>
-      <label for="pwd">Password:</label>
+      <labe>Password:</label>
       <input type="password" class="form-control"  id="password" placeholder ="Enter in dat password yo." name="pass">
   <br>
   <br>
