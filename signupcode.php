@@ -1,7 +1,7 @@
  <?php
  mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
  mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
-           
+
 if(isset($_POST['clickme']))
 
 {
@@ -26,6 +26,6 @@ $sql = "INSERT INTO users ".
        "(fname,lname,email,pass,) ".
        "VALUES('$fname','$lname','$email','$pass')";
 $retval = mysql_query( $sql, $conn );
-header('Location: Login.php');
+
 }
 ?>
