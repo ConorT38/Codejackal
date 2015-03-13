@@ -8,6 +8,20 @@ $user = "codejackal_admin";
 $password = "Waltherp99";
 $conn = mysql_connect($host, $user, $password);
 $db = mysql_select_db('codejackal_database', $conn);
+if(! get_magic_quotes_gpc() )
+{
+   $fname = addslashes ($_POST['fname']);
+   $lname = addslashes ($_POST['lname']);
+   $email = addslashes($_POST['email']);
+   $pass = addslashes($_POST['pass']);
+}
+else
+{
+   $fname = $_POST['fname'];
+   $lname = $_POST['lname'];
+   $email = $_POST['email'];
+   $pass= $_POST['pass'];
+}
 $query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
@@ -26,9 +40,6 @@ if(! $retval )
 {
   die('Could not enter data: ' . mysql_error());
 }
-}
-else{
-echo "<script> window.location.replace('login.php') </script>" 
 }
 
 mysql_close($conn);
@@ -84,7 +95,6 @@ mysql_close($conn);
           <ul class="nav navbar-nav">
             <li><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
-            <li><a href="random">Random</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
             <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
