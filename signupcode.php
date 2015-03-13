@@ -37,6 +37,4 @@ if($retval){
 header('Location: Login.php');
 }
 }
-}
-
 ?>
