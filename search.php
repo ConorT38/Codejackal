@@ -109,7 +109,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $srchterm . "%'";
+$sql="SELECT postID, title, description, reg_date FROM blog WHERE title LIKE '%" . $srchterm . "%'";
 
 //-run the query against the mysql query function
 $result=mysql_query($sql);
@@ -126,12 +126,12 @@ while($row=mysql_fetch_array($result)){
 $title =$row['title'];
 	$description=$row['description'];
 	$id=$row['postID'];
-		
+	$reg=$row['reg_date'];	
 //-display the result of the array
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
 echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
@@ -171,12 +171,13 @@ while($row=mysql_fetch_array($result)){
 $title =$row['title'];
 	$description=$row['description'];
 	$id=$row['postID'];
+	$reg=$row['reg_date'];
 	
 //-display the result of the array
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
 echo "<h5><u>Description: </u><i>" .$description. "</i></h5>";
 echo "</div>";
 echo "</div>";
@@ -202,8 +203,8 @@ $result=mysql_query($sql);
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
 
-  $fname =$row['title'];
-	$lname=$row['description'];
+  $title =$row['title'];
+	$description=$row['description'];
 	$content=$row['content'];
 
 //-display the result of the array
