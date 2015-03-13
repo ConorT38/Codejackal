@@ -111,7 +111,7 @@ header("location: User.php");
       <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "submit" class="btn btn-success"  value="Submit!"/>
+        <input type = "submit" name ="submit" class="btn btn-success"  value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
