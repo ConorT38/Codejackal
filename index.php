@@ -58,10 +58,9 @@ $('#clickme').on('click', function() {
           <ul class="nav navbar-nav">
             <li class="active"><a href="index">Home</a></li>
              <li><a href="list">Archive</a></li>
-            <li><a href="random">Random</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">LeaderBoard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li>
@@ -110,25 +109,24 @@ $('#clickme').on('click', function() {
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
   </ol>
 
   <!-- Slide Content -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="img_1.jpg" alt="image1">
+      <center><img src="img1.png" alt="image1"></center>
     </div>
 
     <div class="item">
-      <img src="img_2.jpg" alt="Image2">
+      <center><img src="img2.png" alt="Image2"></center>
     </div>
 
     <div class="item">
-      <img src="img_3.jpg" alt="Image3">
+      <center><img src="img3.jpg" alt="Image3"></center>
     </div>
 
     <div class="item">
-      <img src="img_4.jpg" alt="Image4">
+      <center><img src="img4.jpg" alt="Image4"></center>
     </div>
   </div>
 
@@ -146,7 +144,7 @@ $('#clickme').on('click', function() {
 	
 
 	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-		What's this all about?
+		What's this?
 	</button>    
     </div>
  </div>
@@ -157,20 +155,19 @@ $('#clickme').on('click', function() {
       <div class="row">
         <div class="col-md-3">
          <h2 >Welcome</h2>
-          <p>Welcome to Codejackal.com! This is the home of all your lovely little needs for tutorials on other peoples projects, work, examples and quizzes for coding<br>
-          Be sure to sign-up and have a look through some of the great tutorials that are one the site, or even go for signing one up for yourself! </p>
+          <p>Welcome to codejackal where you can hfghxfhsfhsdfhsdfhdsfhdfhadfahadfhdfhdhhgffh </p>
           <p><a href="about">more...</a></p>
         </div>
         <div class="col-md-3"> 
           <h2><a href="tutorial">Tutorial</a></h2>
-          <p>So, to get yo started, we're gonna have to go through all the steps to setting up, creating and using a profile.</p>
+          <p>So, to get you started, we're gonna have to go through all the steps to setting up, creating and using a profile.</p>
 		 <p>&nbsp;</p>
 		 <p>We'll walk you through the full process with these simple steps:</p>
           
           <p><a href="tutorial">more...</a></p></div>
         <div class="col-md-3"> 
           <h2>Twitter Feed</h2>
-          <!--Changed the motherfucking Twitter Feed pointer -->
+          
           <!-- fix, we did and it's awesome -->
 <a class="twitter-timeline" href="https://twitter.com/CptCodeJackal" data-widget-id="562646270217814016">Tweets by @CptCodeJackal</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
