@@ -1,8 +1,12 @@
+<?php
+if(!isset($_SESSION['email'])){
+header("location: Login.php");
+}
+?>
 <!DOCTYPE html>
-<!--Session data, sorry if it's messy -->
 <html>
   <head>
-    <title>CodeJackal |<?php echo $fname; ?></title>
+    <title>CodeJackal |<?php echo $_SESSION['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -45,11 +49,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="User">Home</a></li>
              <li><a href="Userlist">My Posts</a></li>
-           
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
-          </ul>
+             </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
             <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -78,7 +78,7 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $_SESSION['fname'];?>! We missed you kinda.</h1>      
          <br>
     </div>
 </div>
