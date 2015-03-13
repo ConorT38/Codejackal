@@ -1,7 +1,10 @@
 <?php
 setcookie(time() + (86400 * 30), "/");
 ?>
-         <!-- The fucking validation home boy, to ensure no hackery or tomfoolery -->
+  <?php
+  include('signupcode.php');
+  ?>
+  <!-- The fucking validation home boy, to ensure no hackery or tomfoolery -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -140,7 +143,7 @@ if (isset($_REQUEST['submitted'])) {
 
 ?>
 
-         <form role="form" method="post" action="signupcode.php">
+         <form role="form" method="post" action="">
 
       <label for="usr">First Name:</label>
       <input type="text" class="form-control"    id="fname" name="fname">
@@ -167,11 +170,6 @@ if (isset($_REQUEST['submitted'])) {
 
 </div>
       </div>
-      <?php if(!isset($_POST['fname'])&&($_POST['lname'])&&($_POST['email'])&&($_POST['pass']))
-{header("Location: Signup.php");
-exit;
-}
-?>
   </form>
   <script src = "myUsers.js"></script>
 
