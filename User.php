@@ -7,7 +7,7 @@ header("location:Login");
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal |<?php echo $_SESSION['fname']; ?></title>
+    <title>CodeJackal | <?php echo $_SESSION['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -95,8 +95,9 @@ header("location:Login");
          <br>
          <p>Hey <?php echo $_SESSION['fname'];?>, ready to make a tutorial?</p>
          
-         <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs">Here</button>
-    </div>
+         <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="Userlist">Here</button>
+<hr>
+</div>
 </div>
       <div class="clearfix visible-lg"></div>
 	  <center>
