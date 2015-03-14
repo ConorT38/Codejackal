@@ -1,6 +1,8 @@
 <?php
+session_start();
 if(isset($_SESSION['email'])){
-header("Location:User");
+$_SESSION['id'] = $sow;
+header("Location:User.php?id=$sow");
 }
 ?>
 <!DOCTYPE html>
