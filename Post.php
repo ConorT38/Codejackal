@@ -43,7 +43,7 @@ header("location: Login.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="User">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
@@ -110,8 +110,16 @@ header("location: Login.php");
 
 
    <div class ="form-group">
-  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;<input name="submitted" id="clickme" class="btn btn-primary" type="submit" value="Submit" />
+  <input name="" type="reset"  class="btn btn-default" value="Reset Form" />&nbsp;&nbsp;&nbsp;
+  <input name="submitted" id="clickme" data-loading-text="Loading..." class="btn btn-primary" type="submit" value="Submit" />
 </div>
+<script>
+  $('#clickme').on('click', function () {
+    var $btn = $(this).button('loading')
+    // business logic...
+    $btn.button('reset')
+  })
+</script>
  <script>
   bootstrap_alert = function() {}
 bootstrap_alert.warning = function(message) {
