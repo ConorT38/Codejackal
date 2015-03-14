@@ -9,6 +9,12 @@ $sql = "SELECT * from blog where postID = '$id';";
 $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error()); 
 
 ?>
+<?php
+if(isset($_POST['upvote'])){
+	$up = 'UPDATE blog SET points = ' .$result['points']. '+ 1';
+	mysql_query($up);
+}
+?>
 <html>
   <head>
     <title>CodeJackal | Tables</title>
@@ -60,7 +66,6 @@ $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error());
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li>
-	
           <form class="navbar-form" action="search.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
@@ -98,6 +103,7 @@ $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error());
     </div>
   </div>
 </div>
+
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
@@ -115,6 +121,20 @@ $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error());
 
     </div>
 </div>
+<form method="post">
+	<div id="na">
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked">
+               <button type="button" name ="upvote" class="btn btn-default">
+          <span class="glyphicon glyphicon-chevron-up"></span></button><span>
+        <button type="button" name ="downvote" class="btn btn-default">
+          <span class="glyphicon glyphicon-chevron-down"></span></button>&nbsp;&nbsp</span><p>Points: <?php echo $result['points'];?></p>
+            </ul>
+        </div>
+      </div>
+      </div>
+      </form>
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
