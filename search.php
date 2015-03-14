@@ -109,7 +109,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT postID, title, description, reg_date FROM blog WHERE title LIKE '%" . $srchterm . "%'";
+$sql="SELECT postID, title, description, reg_date, points FROM blog WHERE title LIKE '%" . $srchterm . "%'";
 
 //-run the query against the mysql query function
 $result=mysql_query($sql);
@@ -127,12 +127,13 @@ $title =$row['title'];
 	$description=$row['description'];
 	$id=$row['postID'];
 	$reg=$row['reg_date'];	
+	$points =$row['points'];
 //-display the result of the array
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
-echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small><br>';
+echo "<h4><u>Description</u>:</h4> <p><i>" .$description. "</i></p><br><h5><b>Points: ".$points."</b></h5>";
 echo "</div>";
 echo "</div>";
 }
@@ -154,7 +155,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 $mydb=mysql_select_db("codejackal_database");
 
 //-query the database table
-$sql="SELECT postID, title, description FROM blog WHERE title LIKE '%" . $letter . "%'";
+$sql="SELECT postID, title, description, points, reg_date FROM blog WHERE title LIKE '%" . $letter . "%'";
 
 
 //-run the query against the mysql query function
@@ -172,13 +173,13 @@ $title =$row['title'];
 	$description=$row['description'];
 	$id=$row['postID'];
 	$reg=$row['reg_date'];
-	
+	$points =$row['points'];
 //-display the result of the array
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
-echo "<h5><u>Description: </u><i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small><br>';
+echo "<h4><u>Description</u>:</h4> <p><i>" .$description. "</i></p><br><h5><b>Points: ".$points."</b></h5>";
 echo "</div>";
 echo "</div>";
 }
