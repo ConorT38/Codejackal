@@ -11,13 +11,17 @@ $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error());
 ?>
 <?php
 if(isset($_POST['upvote'])){
-	$up = 'UPDATE blog SET points = ' .$result['points']. '+ 1';
+	$up = 'UPDATE blog SET points = ' .$result['points']. '+ 1 WHERE postID =' .$id. '';
 	mysql_query($up);
+}
+if(isset($_POST['downvote'])){
+		$down = 'UPDATE blog  SET points = ' .$result['points']. '- 1 WHERE postID =' .$id. '';
+	mysql_query($down);
 }
 ?>
 <html>
   <head>
-    <title>CodeJackal | Tables</title>
+    <title>CodeJackal | <?php echo $result['title'];?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -126,9 +130,9 @@ if(isset($_POST['upvote'])){
     <div class="row">
         <div class="col-xs-3" id="myScrollspy">
             <ul class="nav nav-tabs nav-stacked">
-               <button type="button" name ="upvote" class="btn btn-default">
+               <button type="submit" name ="upvote" class="btn btn-default">
           <span class="glyphicon glyphicon-chevron-up"></span></button><span>
-        <button type="button" name ="downvote" class="btn btn-default">
+        <button type="submit" name ="downvote" class="btn btn-default">
           <span class="glyphicon glyphicon-chevron-down"></span></button>&nbsp;&nbsp</span><p>Points: <?php echo $result['points'];?></p>
             </ul>
         </div>
