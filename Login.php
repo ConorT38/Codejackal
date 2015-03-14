@@ -102,7 +102,7 @@
     </div><form role="form">
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in your password.">
+      <input type="password" class="form-control" name="pass" id="pass" placeholder ="Enter in your password.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
         <input type = "submit" name ="submit" class="btn btn-success"  value="Submit!"/>
