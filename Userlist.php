@@ -1,7 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])){
+header('location:Login');	
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal |<?php echo $fname; ?></title>
+    <title>CodeJackal | <?php echo $_SESSION['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -44,14 +50,10 @@
           <ul class="nav navbar-nav">
             <li><a href="User">Home</a></li>
              <li class="active"><a href="Userlist">My Posts</a></li>
-            <li><a href="Games">Games</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
-          </ul>
+               </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-          <form class="navbar-form" action="search" method="post" role="search">
+          <form class="navbar-form" action="Usersearch.php?go" method="post">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -60,7 +62,7 @@
 		</div>
 		</form>
 		</li>
-            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-pencil"></span>Post</a></li>
             <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
@@ -87,10 +89,37 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
+        <h1>This is all of your blog posts.</h1>      
          <br>
-    </div>
-</div>
+ <?php
+ 
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+//-query the database table
+$sql="SELECT postID, title, description, reg_date, points FROM blog WHERE id= " . $_SESSION['id'] . "";
+//-run the query against the mysql query function
+$result=mysql_query($sql);
+//-count results
+$numrows=mysql_num_rows($result);
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+$title =$row['title'];
+	$description=$row['description'];
+	$id=$row['postID'];
+	$reg=$row['reg_date'];	
+	$points =$row['points'];
+//-display the result of the array
+echo '</div></div>';
+echo '<div class="container">';
+echo '<div class="jumbotron">';
+echo '<h3><u>Title:</u> <a href="Userblog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small><br>';
+echo "<h4><u>Description</u>:</h4> <p><i>" .$description. "</i></p><br><h5><b>Points: ".$points."</b></h5>";
+echo "</div>";
+echo "</div>";
+}
+?>
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
