@@ -95,7 +95,7 @@
       <div class="jumbotron">
         <h1>Come to login?</h1>      
          <br>
-         <form action="User.php"  method="post" >
+         <form action="check_login.php"  method="post" >
     <div class="form-group">
       <label for="usr">E-mail:</label>
       <input type="email" class="form-control" id="email"  name="email">
