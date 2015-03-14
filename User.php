@@ -44,7 +44,7 @@ header("location:Login");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index">CodeJackal</a>
+          <a class="navbar-brand" href="User">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
@@ -52,6 +52,7 @@ header("location:Login");
              <li><a href="Userlist">My Posts</a></li>
           </ul>          
             <ul class="nav navbar-nav navbar-right">
+            	
        <li>
           <form class="navbar-form" action="Usersearch.php?go" method="post" role="search">
 		<div class="input-group">
@@ -63,7 +64,7 @@ header("location:Login");
 		</div>
 		</form>
 		</li>
-            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-pencil"></span>Post</a></li>
             <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
@@ -90,10 +91,11 @@ header("location:Login");
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $_SESSION['fname'];?>! We missed you kinda.</h1>      
+        <h1>Welcome!</h1>
          <br>
+         <p>Hey <?php echo $_SESSION['fname'];?>, ready to make a tutorial?</p>
          
-         <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs.php">Here</button>
+         <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs">Here</button>
     </div>
 </div>
       <div class="clearfix visible-lg"></div>
