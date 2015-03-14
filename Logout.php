@@ -38,11 +38,7 @@ session_destroy();
   $('[data-toggle="tooltip"]').tooltip()
 })
   </script>
-   <script>
-function validateCtrl($scope) {
-    $scope.email = '';
-}
-</script>
+
 
 	<link rel="shortcut icon" href="food.ico">
   </head>
@@ -106,31 +102,21 @@ function validateCtrl($scope) {
       <div class="jumbotron">
         <h1>Leaving so soon?</h1>      
          <br>
-        <form role="form" action = "User.php" name="myForm" >
+        <form role="form" action = "check_login.php" name="myForm" >
     <div class="form-group">
-      <label for="usr">E-mail:</label>
+      <label E-mail:</label>
       <input type="email" class="form-control" id="email" required name="email">
     </div><form role="form">
     <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" name="password" id="pwd" placeholder ="Enter in dat password yo.">
+      <label>Password:</label>
+      <input type="password" class="form-control" name="pass" id="pass" placeholder ="Enter in dat password yo.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" id = "clickme" value="Submit!"/>
+        <input type = "button" class="btn btn-success" name="clickme" id = "clickme" value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
    </div>
-<script>
-bootstrap_alert = function() {}
-bootstrap_alert.warning = function(message) {
-            $('#alert_placeholder').html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
-        }
-
-$('#clickme').on('click', function() {
-            bootstrap_alert.warning('Sadly, we are not quite ready to commit to you yet, we have to work on ourselves first.');
-});
-</script>​
       </div>
   </form>
   </form>
