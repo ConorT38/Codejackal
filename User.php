@@ -1,39 +1,13 @@
 <?php
-session_start(); // Starting Session
-// Define $username and $password
-$email=$_POST['email'];
-$password=$_POST['pass'];
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysqli_connect("localhost", "codejackal_admin", "Waltherp99");
-// To protect MySQL injection for Security purpose
-$email = stripslashes($email);
-$password = stripslashes($password);
-$email = mysqli_real_escape_string($email);
-$password = mysqli_real_escape_string($password);
-// Selecting Database
-$db = mysqli_select_db("codejackal_database", $connection);
-// SQL query to fetch information of registerd users and finds user match.
-$query = mysqli_query("select * from users where pass='$password' AND email='$email'");
-$rows = mysqli_num_rows($query);
-if ($rows == 1) {
-$_SESSION['email']=$email; // Initializing Session
-header("location: User.php"); // Redirecting To Other Page
-} else {
-$error = "Username or Password is invalid";
+session_start();
+if(!$_SESSION['email']){
+header("location:Login");
 }
-mysql_close($connection); // Closing Connection
-}
-}
-?>
-
-<?php
-include('session.php');
 ?>
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>CodeJackal |<?php echo $row['fname']; ?></title>
+    <title>CodeJackal |<?php echo $_SESSION['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -76,13 +50,10 @@ include('session.php');
           <ul class="nav navbar-nav">
             <li class="active"><a href="User">Home</a></li>
              <li><a href="Userlist">My Posts</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>          
-            </ul>          
+          </ul>          
             <ul class="nav navbar-nav navbar-right">
        <li>
-          <form class="navbar-form" action="search.php" method="post" role="search">
+          <form class="navbar-form" action="Usersearch.php?go" method="post" role="search">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
@@ -119,7 +90,7 @@ include('session.php');
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $row['fname'];?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $_SESSION['fname'];?>! We missed you kinda.</h1>      
          <br>
          
          <h3>Why don't you check out some tutorials  <button type="button" class="btn btn-info" href="UserAllBlogs.php">Here</button>
