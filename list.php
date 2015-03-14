@@ -151,8 +151,8 @@ $title =$row['title'];
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
-echo "<h5><u>Description:</u> <i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
+echo "<h4><u>Description: </u><i>" .$description. "</i></h4><br><h5><b>Points: '.$points.'</b></h5>";
 echo "</div>";
 echo "</div>";
 }
@@ -181,8 +181,8 @@ $title =$row['title'];
 echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
-echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br>';
-echo "<h5><u>Description: </u><i>" .$description. "</i></h5>";
+echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
+echo "<h4><u>Description: </u><i>" .$description. "</i></h4><br><h5><b>Points: '.$points.'</b></h5>";
 echo "</div>";
 echo "</div>";
 }
