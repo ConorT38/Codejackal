@@ -154,7 +154,7 @@ echo '</div></div>';
 echo '<div class="container">';
 echo '<div class="jumbotron">';
 echo '<h3><u>Title:</u> <a href="blog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small>';
-echo "<h4><u>Description: </u><i>" .$description. "</i></h4><br><h5><b>Points: '.$points.'</b></h5>";
+echo "<h4><u>Description: </u><i>" .$description. "</i></h4><br><h5><b>Points: ".$points. "</b></h5>";
 echo "</div>";
 echo "</div>";
 }
@@ -167,7 +167,7 @@ $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I can
 //-select the database to use
 $mydb=mysql_select_db("codejackal_database");
 //-query the database table
-$sql="SELECT postID, title, description,reg_date, points FROM blog WHERE title LIKE '%" . $letter . "%' OR description LIKE '%" . $letter ."%'";
+$sql="SELECT postID, title, description,reg_date, points FROM blog WHERE title LIKE '%" . $letter . "%'";
 //-run the query against the mysql query function
 $result=mysql_query($sql); 
 //-count results
