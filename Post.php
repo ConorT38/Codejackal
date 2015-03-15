@@ -1,6 +1,7 @@
 <?php
+session_start();
 if(!isset($_SESSION['email'])){
-header("location: Login.php");
+header('location:Login');	
 }
 ?>
 <!DOCTYPE html>
@@ -78,14 +79,14 @@ header("location: Login.php");
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $_SESSION['fname'];?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $_SESSION['fname'];?>. You should post something.</h1>      
          <br>
     </div>
 </div>
  <div class="container">
         <div class="jumbotron">
       <!-- Beginning of blog post(Beta)_Seamus-->
-      <h2>Post Your Blog Hommie!!!</h2>
+      <h2>Post your Blog here</h2>
         <p>Fill out the form below.</p>
           <div class ="form-group">
           <form action="postsuccess.php" method="post">
