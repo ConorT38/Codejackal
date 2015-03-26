@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+header("Location:User.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,7 +55,7 @@
              <li><a href="list">Archive</a></li>
             <li><a href="about">About Us</a></li>
             <li class="active"><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is a leaderboard of the best CodeJackal users!! "><a href="leaderboard">Leaderboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
              <li>
@@ -61,7 +68,7 @@
     </div>
     </form>
     </li>
-            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="Keep up to date with everything CodeJackal!!" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>

@@ -1,9 +1,9 @@
 <?php
+session_start();
 if(isset($_SESSION['email'])){
-header('Location: User.php');	
+header("Location:User.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,6 +35,50 @@ header('Location: User.php');
 })
   </script>
 
+<script type="text/javascript">
+var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
+var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]
+{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i 
+var ck_username = /^[A-Za-z0-9_]{1,20}$/;
+var ck_password =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+
+function validate(form){
+var fname = form.fname.value;
+var email = form.email.value;
+var lname= form.lname.value;
+var pass= form.pass.value;
+var errors = [];
+ 
+ if (!ck_name.test(fname)) {
+  errors[errors.length] = "You must enter a valid first Name .";
+ }
+ if (!ck_email.test(email)) {
+  errors[errors.length] = "You must enter a valid email 
+address.";
+ }
+ if (!ck_username.test(lname)) {
+  errors[errors.length] = "You must enter in a valid Last name.";
+ }
+ if (!ck_password.test(pass)) {
+  errors[errors.length] = "You must enter a valid Password ";
+ }
+ if (errors.length > 0) {
+
+  reportErrors(errors);
+  return false;
+ }
+  return true;
+}
+function reportErrors(errors){
+ var msg = "Please Enter Valide Data...\n";
+ for (var i = 0; i<errors.length; i++) {
+ var numError = i + 1;
+  msg += "\n" + numError + ". " + errors[i];
+}
+ alert(msg);
+}
+</script>
+
 	<link rel="shortcut icon" href="food.ico">
   </head>
 
@@ -55,7 +99,7 @@ header('Location: User.php');
             <li><a href="list">Archive</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is a leaderboard of the best CodeJackal users!! "><a href="leaderboard">Leaderboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
              <li>
@@ -68,7 +112,7 @@ header('Location: User.php');
 		</div>
 		</form>
 		</li>
-            <li class="active"><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
+            <li class="active"><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="Keep up to date with everything CodeJackal!!" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
             <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
@@ -142,7 +186,7 @@ if (isset($_REQUEST['submitted'])) {
 
 ?>
 
-         <form role="form" method="post" action="signupsuccess.php">
+         <form role="form" method="post" action="signupsuccess.php" onSubmit="return validate(this);" name="form">
 
       <label">First Name:</label>
       <input type="text" class="form-control" id="fname" name="fname">

@@ -1,28 +1,24 @@
-<?php
-// remove all session variables
-session_unset(); 
-
-// destroy the session 
-session_destroy(); 
+﻿<?php
+session_start();
+if(isset($_SESSION['email'])){
+header("Location:User.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeJackal | Logout</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Free Web tutorials">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Codejackal team">
+    <title>CodeJackal | Login</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css">
-
-
+<!-- You're a tool conor --> 
+<!-- Angular js import motherfucker -->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" src="socialbtn.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -39,7 +35,6 @@ session_destroy();
 })
   </script>
 
-
 	<link rel="shortcut icon" href="food.ico">
   </head>
 
@@ -52,15 +47,15 @@ session_destroy();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-         <a class="navbar-brand" href="index">CodeJackal</a>
+           <a class="navbar-brand" href="index">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index">Home</a></li>
-            <li><a href="list">Archive</a></li>
-            <li><a href="about">About Us</a></li>
+            <li class="active"><a href="index">Home</a></li>
+             <li><a href="list">Archive</a></li>
+             <li><a href="about">About Us</a></li>
             <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is a leaderboard of the best CodeJackal users!! "><a href="leaderboard">Leaderboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -73,8 +68,8 @@ session_destroy();
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="Signup" data-toggle="tooltip" data-placement="bottom" title="Keep up to date with everything CodeJackal!!" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li class="active"><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </div>
           </ul>
         </div>
@@ -86,10 +81,13 @@ session_destroy();
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">B-But why?</h4>
+          <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
       <div class="modal-body">
-       Logging out on us, hmm? Well then. Didn't need you anyway. Really, we're fine. Go. <br><br><br>Please come back.
+        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
+        <br>
+        What you're gonna want to do, is just enter in all of your silly little credentials (Email, Password) and I'll let the server do the rest.<br>
+        Trust me, it's easy!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -102,27 +100,43 @@ session_destroy();
       <div class="jumbotron">
         <h1>Leaving so soon?</h1>      
          <br>
-        <form role="form" action = "check_login.php" name="myForm" >
+         <form action="check_login.php"  method="post" >
     <div class="form-group">
-      <label E-mail:</label>
-      <input type="email" class="form-control" id="email" required name="email">
+      <label for="usr">E-mail:</label>
+      <input type="email" class="form-control" id="email"  name="email">
     </div><form role="form">
     <div class="form-group">
-      <label>Password:</label>
-      <input type="password" class="form-control" name="pass" id="pass" placeholder ="Enter in dat password yo.">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" name="pass" id="pass" placeholder ="Enter in your password.">
     </div>
     <div class="col-sm-offset-0 col-sm-10">
-        <input type = "button" class="btn btn-success" name="clickme" id = "clickme" value="Submit!"/>
+        <input type = "submit" name ="submit" class="btn btn-success"  value="Submit!"/>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
   Does someone need help?
 </button>
    </div>
+<script>
+bootstrap_alert = function() {}
+bootstrap_alert.warning = function(message) {
+            $('#alert_placeholder').html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
+        }
+
+$('#clickme').on('click', function() {
+            bootstrap_alert.warning('Sadly, we are not quite ready to commit to you yet, we have to work on ourselves first.');
+});
+</script>​
       </div>
   </form>
   </form>
+  <script>
+function validateCtrl($scope) {
+    $scope.email = '';
+}
+</script>
       </div>
     </div>
 </div>
+
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
  mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
  mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
 $id = intval($_REQUEST['id']);  
@@ -7,25 +8,22 @@ $id = intval($_REQUEST['id']);
 $sql = "SELECT * from blog where postID = '$id';";  
 
 $result = mysql_fetch_array(mysql_query($sql)) or die(mysql_error()); 
+$content= html_entity_decode($result['content']);
 
 ?>
 <?php
 if(isset($_POST['upvote'])){
 	$up = 'UPDATE blog SET points = ' .$result['points']. '+ 1 WHERE postID =' .$id. '';
 	mysql_query($up);
-$upt ='UPDATE users u INNER JOIN blog s ON u.id = s.id SET u.points = u.points + s.points WHERE s.id = u.id';
-mysql_query($upt);
 }
 if(isset($_POST['downvote'])){
 		$down = 'UPDATE blog  SET points = ' .$result['points']. '- 1 WHERE postID =' .$id. '';
 	mysql_query($down);
-$downt ='UPDATE users u INNER JOIN blog s ON u.id = s.id SET u.points = s.points WHERE s.postID = u.id';
-mysql_query($downt);
 }
 ?>
 <html>
   <head>
-    <title>CodeJackal | <?php echo $result['title'];?></title>
+    <title>CodeJackal | <?php echo $_SESSION['fname']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -49,6 +47,18 @@ mysql_query($downt);
   $('[data-toggle="tooltip"]').tooltip()
 })
   </script>
+  <script>
+      $(document).ready(function() {
+          $("a.dropdown-toggle").click(function(ev) {
+              $("a.dropdown-toggle").dropdown("toggle");
+              return false;
+          });
+          $("ul.dropdown-menu a").click(function(ev) {
+              $("a.dropdown-toggle").dropdown("toggle");
+              return false;
+          });
+      });
+    </script>
 
 	<link rel="shortcut icon" href="food.ico">
   </head>
@@ -62,29 +72,37 @@ mysql_query($downt);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index">CodeJackal</a>
+         <?php echo'<a class="navbar-brand" href="User.php?id='.$_SESSION["id"].'">CodeJackal</a>'?>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index">Home</a></li>
-             <li><a href="list">Archive</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          <li>
-          <form class="navbar-form" action="search.php?go" method="post" role="search">
+            <?php echo '<li><a href="User.php?id='.$_SESSION["id"].'">Home</a></li>'; ?>  
+           <?php echo '<li><a href="Userlist.php?id=' .$_SESSION["id"].'">My Posts</a></li>'; ?>  
+          </ul>          
+            <ul class="nav navbar-nav navbar-right">
+            	
+       <li>
+          <?php echo '<form class="navbar-form" action="Usersearch.php?go" method="post" role="search">';?>
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="Search" name="srchterm" id="srchterm">
 			<div class="input-group-btn">
 				<button class="btn btn-default" name ="submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
+	
 		</div>
 		</form>
 		</li>
-            <li><a href="Signup.php" data-toggle="tooltip" data-placement="bottom" title="This is not quite ready yet, sozzles." ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+ <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Info <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+           <?php echo '<li>Name: <small>'.$_SESSION['fname'].' '.$_SESSION['lname'].'</small></li>'; ?>
+             <?php echo '<li>Email: <small>'.$_SESSION['email'].'</small></li>'; ?>
+            <li class="divider"></li>
+            <?php echo '<li>Points:<small> '.$_SESSION['points'].'</small></li>'; ?>
+          </ul>
+        </li>
+            <?php echo '<li><a href="Post.php?id='.$_SESSION["id"].'" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-pencil"></span>Post</a></li>';?>
+            <li><a href="redirect"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
@@ -124,7 +142,7 @@ mysql_query($downt);
 </div>
  <div class="container">
       <div class="jumbotron">
-        <p><?php echo $result['content'];?></p>     
+        <p><?php echo $content;?></p>     
          <br>
 
     </div>

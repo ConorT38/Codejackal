@@ -1,14 +1,12 @@
-<?php
+ <?php
 session_start();
-if(!isset($_SESSION['email'])){
-header('location:Login');	
-}
-?>
+ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
+ mysql_select_db("codejackal_database") or die("Couldn't connect to the database!");
+ ?>
 <!DOCTYPE html>
 <html>
-  <html>
   <head>
-    <title>CodeJackal | <?php echo $_SESSION['fname']; ?></title>
+    <title>CodeJackal | <?php echo $_POST['srchterm']; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -62,7 +60,7 @@ header('location:Login');
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <?php echo '<li><a href="User.php?id='.$_SESSION["id"].'">Home</a></li>'; ?>  
-           <?php echo '<li class="active"><a href="Userlist.php?id=' .$_SESSION["id"].'">My Posts</a></li>'; ?>  
+           <?php echo '<li><a href="Userlist.php?id=' .$_SESSION["id"].'">My Posts</a></li>'; ?>  
           </ul>          
             <ul class="nav navbar-nav navbar-right">
             	
@@ -102,7 +100,10 @@ header('location:Login');
           <h4 class="modal-title" id="myModalLabel">A little helping hand...</h4>
       </div>
       <div class="modal-body">
-      This is your user profile, do stuff with it!
+        So you've made it to the Login part of the site, good for you, you're brilliant. That means you made a page, and are trying to Login to that page, so you can get started That's good. I like you.<br>        Judging by you clicking on this, you need help. That's no problem. Just means you're not a techy perhaps.<hr>
+        <br>
+        What you're gonna want to do, is just enter in all of your silly little credentials (Email, Password) and I'll let the server do the rest.<br>
+        Trust me, it's easy!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -113,22 +114,36 @@ header('location:Login');
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>This is all of your blog posts.</h1>      
-         <br>
- <?php
- 
+        <h1>Search results for : <?php echo $_POST['srchterm']; ?></h1>      
+        
+  <?php
+
+if(isset($_POST['submit'])){
+if(isset($_GET['go'])){
+if(preg_match("/[A-Z | a-z]+/", $_POST['srchterm'])){
+$srchterm=$_POST['srchterm'];
+
 //connect to the database
 $db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
 //-select the database to use
 $mydb=mysql_select_db("codejackal_database");
+
 //-query the database table
-$sql="SELECT postID, title, description, reg_date, points FROM blog WHERE id= " . $_SESSION['id'] . "";
+$sql="SELECT postID, title, description, reg_date, points FROM blog WHERE title LIKE '%" . $srchterm . "%'";
+
 //-run the query against the mysql query function
 $result=mysql_query($sql);
+
 //-count results
+
 $numrows=mysql_num_rows($result);
+
+echo "<p>" .$numrows . " results found for " . stripslashes($srchterm) . "</p>"; 
+
 //-create while loop and loop through result set
 while($row=mysql_fetch_array($result)){
+
 $title =$row['title'];
 	$description=$row['description'];
 	$id=$row['postID'];
@@ -143,7 +158,93 @@ echo "<h4><u>Description</u>:</h4> <p><i>" .$description. "</i></p><br><h5><b>Po
 echo "</div>";
 echo "</div>";
 }
+}
+else{
+echo "<p>Please enter a search query</p></div></div>";
+}
+}
+}
+
+if(isset($_GET['by'])){
+$letter=$_GET['by'];
+
+//connect to the database
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+
+//-query the database table
+$sql="SELECT postID, title, description, points, reg_date FROM blog WHERE title LIKE '%" . $letter . "%'";
+
+
+//-run the query against the mysql query function
+$result=mysql_query($sql); 
+
+//-count results
+$numrows=mysql_num_rows($result);
+
+echo "<p>" .$numrows . " results found for " . $letter . "</p>"; 
+
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+
+$title =$row['title'];
+	$description=$row['description'];
+	$id=$row['postID'];
+	$reg=$row['reg_date'];
+	$points =$row['points'];
+//-display the result of the array
+echo '</div></div>';
+echo '<div class="container">';
+echo '<div class="jumbotron">';
+echo '<h3><u>Title:</u> <a href="Userblog.php?id='.$id.'">'  .$title .'</a></h3><br><small>Date: <i>' .$reg. '</i></small><br>';
+echo "<h4><u>Description</u>:</h4> <p><i>" .$description. "</i></p><br><h5><b>Points: ".$points."</b></h5>";
+echo "</div>";
+echo "</div>";
+}
+}
+
+if(isset($_GET['id'])){
+$contactid=$_GET['id'];
+
+//connect to the database
+$db=mysql_connect ("localhost", "codejackal_admin", "Waltherp99") or die ('I cannot connect to the database because: ' . mysql_error()); 
+
+//-select the database to use
+$mydb=mysql_select_db("codejackal_database");
+
+//-query the database table
+$sql="SELECT * FROM blog WHERE postID=" . $id;
+
+
+//-run the query against the mysql query function
+$result=mysql_query($sql); 
+
+//-create while loop and loop through result set
+while($row=mysql_fetch_array($result)){
+
+  $title =$row['title'];
+	$description=$row['description'];
+	$content=$row['content'];
+
+//-display the result of the array
+echo '</div></div>';
+echo '<div class="container">';
+echo '<div class="jumbotron">\n';
+echo "<h3><u>Title:</u> "  .$title ."</h3><br><hr>";
+echo "<h5><u>Description:</u> <i>" .$description. "</i></h5><br>";
+echo "<p>" .$content. "</p>";
+echo "</div>";
+echo "</div>";
+}
+}
+
+
 ?>
+       
+         
       <div class="clearfix visible-lg"></div>
 	  <center>
 	  <footer class ="footer">
@@ -157,3 +258,6 @@ echo "</div>";
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+

@@ -38,20 +38,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-           <a class="navbar-brand" href="index.php">CodeJackal</a>
+          <a class="navbar-brand" href="index.php">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-             <li><a href="list">Archive</a></li>
-            <li><a href="random">Random</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li class="active"><a href="User.php">Home</a></li>
+             <li><a href="Userlist.php">My Posts</a></li>
+            <li><a href="Games.php">Games</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard.php">Code of the Month!</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="Post" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
-            <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            <li><a href="Post.php" data-toggle="tooltip" data-placement="bottom" title="Post a new blog" ><span class="glyphicon glyphicon-user"></span>Post</a></li>
+            <li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </div>
           </ul>
         </div>
@@ -77,7 +77,7 @@
 <div id = "alert_placeholder"></div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hey, <?php echo $fname?; ?>! We missed you kinda.</h1>      
+        <h1>Hey, <?php echo $fname?>! We missed you kinda.</h1>      
          <br>
     </div>
 </div>

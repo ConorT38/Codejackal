@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+header("Location:User.php");
+}
+?>
+
 <!DOCTYPE html>
 <?php
 mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());
@@ -100,11 +107,9 @@ mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error())
          <!-- The following will be a table done in PHP and a simple for loop with all of the score listing of users and which score is the highest. The estimate
          loop will be something like "for(int i=0; i<list.size(); i++){
                                           echo $_POST['score']}; etc..-->
-    <?php
+     <?php
 $sql = "SELECT fname, lname, points FROM users ORDER BY points DESC LIMIT 0 , 10";
-
 $result = mysql_query($sql);
-
 if (mysql_num_rows($result) > 0) {
 	echo '<table class="table table-striped"><thead><tr class="info"><th>First name</th><th>Last name</th><th>Score</th></tr></thead>';
     // output data of each row
@@ -112,14 +117,12 @@ if (mysql_num_rows($result) > 0) {
        echo '<tbody><tr><td>' . $row["fname"]. '</td><td> ' . $row["lname"]. '</td><td>' . $row["points"]. '</td></tr></tbody>';
      
     }
-
    echo "</table>";
 } else {
      echo "0 results";
 }
-
 mysql_close($conn);
-?>  
+?> 
 
     </div>
 </div>
@@ -127,7 +130,7 @@ mysql_close($conn);
 	  <center>
 	  <footer class ="footer">
 	  <div class = "container">
-	  <p class=" text-muted">Code Jackal &copy; 2015</p>
+	  <p class=" text-muted">CodeJackal &copy; 2015</p>
 	  </div>
 	  </footer>
 	  </center>

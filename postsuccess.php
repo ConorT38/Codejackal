@@ -25,11 +25,19 @@ else
    $content = $_POST['content'];
    $tags = $_POST['tags'];
 }
+$sectitle = htmlentities($title);
+$sectitle = mysql_real_escape_string($sectitle);
+$secdesc = htmlentities($description);
+$secdesc = mysql_real_escape_string($secdesc);
+$seccont = htmlentities($content);
+$seccont = mysql_real_escape_string($seccont);
+$sectags = htmlentities($tags);
+$sectags = mysql_real_escape_string($sectags);
 $id = $_SESSION['id'];
 
 $sql = "INSERT INTO blog ".
        "(title,description,content,tags,id) ".
-       "VALUES('$title','$description','$content','$tags','$id')";
+       "VALUES('$sectitle','$secdesc','$seccont','$sectags','$id')";
 mysql_select_db('codejackal_database');
 $retval = mysql_query( $sql, $conn );
 
@@ -75,10 +83,9 @@ mysql_close($conn);
 
 	<link rel="shortcut icon" href="food.ico">
   </head>
-
-  <body onLoad="timer = setTimeout(function(){
-                      window.location= 'Post';
-                      },2000)">
+<body onload="timer = setTimeout(function() {
+                window.location = 'Userlist';
+            }, 2000)">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -87,15 +94,12 @@ mysql_close($conn);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="index">CodeJackal</a>
+          <a class="navbar-brand" href="User">CodeJackal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index">Home</a></li>
-             <li><a href="list">Archive</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li data-toggle="tooltip" data-placement="bottom" title="This is the most highly rated tutorial post"><a href="leaderboard">Code of the Month!</a></li>
+            <li><a href="User">Home</a></li>
+             <li><a href="Userlist">My Posts</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
              <li>

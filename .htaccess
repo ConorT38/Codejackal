@@ -1,0 +1,12 @@
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+RewriteBase /
+
+ErrorDocument 404 /404.php
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteRule ^about$ about.html [L]

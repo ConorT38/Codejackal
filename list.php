@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+header("Location:User.php");
+}
+?>
 <!DOCTYPE html>
  <?php
  mysql_connect("localhost","codejackal_admin","Waltherp99") or die(mysql_error());

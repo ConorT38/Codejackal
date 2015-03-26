@@ -77,7 +77,7 @@ header("location:Login");
 		</form>
 		</li>
  <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Info <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Info <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
            <?php echo '<li>Name: <small>'.$_SESSION['fname'].' '.$_SESSION['lname'].'</small></li>'; ?>
              <?php echo '<li>Email: <small>'.$_SESSION['email'].'</small></li>'; ?>

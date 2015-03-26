@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(isset($_SESSION['email'])){
+header("Location:User.php");
+}
+?>
+<?php
 $host = "localhost";
 $user = "codejackal_admin";
 $password = "Waltherp99";
@@ -18,6 +24,8 @@ else
    $email = $_POST['email'];
    $pass= $_POST['pass'];
 }
+$pass = md5($pass);
+$email = md5($email);
 $query = mysql_query("select * from users where pass='$pass' AND email='$email'", $conn);
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
