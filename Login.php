@@ -35,10 +35,13 @@ header("Location:User.php");
 })
   </script>
 
-	<link rel="shortcut icon" href="food.ico">
+	<link rel="shortcut icon" href="food.png">
   </head>
 
   <body>
+  	<div class="page-header">
+  		<h1><img alt="Logo" src="netsoc.jpg"/> NCI NetSoc <small>Learn | Experiment | Do</small></h1>
+	</div>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
