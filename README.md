@@ -1,5 +1,6 @@
-# site
-This site was created and designed by the tasty fuckers: Conor Thompson, Niall Curran, Seamus Fanning and Jelico Bachin.
-The company name is CodeJackal, which is a copyrighted brand name, so touching it or using it is punishable by death somewhere.
+# Codejackal
 
-It is copyrighted code. Touch it and die.
+This site was part of a project for our Second year Web Development, it functions as a tutorial/Q&A type site oriented around programming and general computing. 
+It has a 'like' system incorporated with a leaderboard, and also awarding badges for the users points(acquired by likes,shares etc).
+
+The CSS framework used is Bootstrap, and the server-side language is PHP5.
